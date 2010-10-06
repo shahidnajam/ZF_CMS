@@ -39,7 +39,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 				'text/javascript'
 			);
 			
-			$view->skin = 'blues';
+			$view->skin = 'silver';
 		
 		//add it to the viewrenderer
 		$viewrenderer = Zend_Controller_Action_HelperBroker::getStaticHelper('ViewRenderer');

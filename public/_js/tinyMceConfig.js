@@ -20,7 +20,7 @@ $().ready(function() {
 		theme_advanced_resizing : true,
 		file_browser_callback : "tinyBrowser",
 		// Example content CSS (should be your site CSS)
-		//content_css : "/_skins/blues/_css/layout.css",
+		//content_css : "/_skins/silver/_css/layout.css",
 
 		// Drop lists for link/image/media/template dialogs
 		template_external_list_url : "lists/template_list.js",
