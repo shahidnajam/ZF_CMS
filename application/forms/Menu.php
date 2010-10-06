@@ -14,7 +14,7 @@ class Form_Menu extends Zend_Form
 		$name = $this->createElement('text', 'name');
 		$name->setLabel('Name: ');
 		$name->setRequired(TRUE);
-		$name->setAttrib('size', 40);
+		$name->setAttrib('class', 'title');
 		
 		//strip tags
 		$name->addFilter('StripTags');
