@@ -1,0 +1,8 @@
+.settings/
+.act*
+.build*
+.flex*
+.proje*
+Table*
+*nbproject
+sleekSilver/*

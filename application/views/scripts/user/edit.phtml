@@ -1,0 +1,8 @@
+<h2>Edit a user</h2>
+<p>To edit a user, complete this form and press submit.</p>
+<?php echo $this->form; ?>
+<p>
+	<a href="/user/password/id/<?php echo $this->form->getElement('id')->getValue(); ?>">
+		Update this user's password
+	</a>
+</p>

@@ -1,0 +1,33 @@
+<div id="viewBlog">
+	<h2><?php echo $this->blog->headline; ?></h2>
+	<blockquote><?php echo $this->blog->description; ?></blockquote>
+	<?php if(!empty($this->blog->image)):?>
+		<img id="mainImage" src="<?php echo $this->blog->image; ?>" alt="<?php echo $this->blog->headline; ?>" />
+	<?php endif;?>
+	<p><?php echo $this->blog->blogContent; ?></p>
+</div>
+<?php if($this->blog->comments == 1):?>
+	<div id="comments">
+		<h3>Comments:</h3>
+		<?php if(count($this->comments) == 0):?>
+			<p>No Comments Yet...</p>
+		<?php else:?>
+			<?php foreach($this->comments as $comment):?>
+				<?php $n=1; ?>
+				<div class="comment">
+					<p><strong>Name: </strong><?php echo $comment->name; ?></p>
+					<p><strong>Time: </strong><?php echo date('m/d/Y g:ia',$comment->timestamp); ?></p>
+					<p class="commentContent"><?php echo $comment->content; ?></p>
+				</div>
+			<?php endforeach;?>
+		<?php endif;?>
+	</div>
+<?php endif;?>
+
+<?php if(!empty($this->tags)):?>
+<div style="clear:both">
+	<p>Tags:
+		<?php for($i=0; $i<count($this->tags); $i++):?><?php if($i > 0):?>, <?php endif;?><a href="/search/index/tag/<?php echo $this->tags[$i]; ?>" class="blogTags"><?php echo $this->tags[$i]; ?></a><?php endfor;?>
+	</p>
+</div>
+<?php endif; ?>

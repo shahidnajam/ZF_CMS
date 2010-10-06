@@ -1,0 +1,13 @@
+<h2>Current Blog Posts</h2>
+<?php if($this->blogs != null): ?>
+	<table class="spreadsheet">
+		<tr>
+			<th>Actions</th>
+			<th>Name</th>
+		</tr>
+		<?php echo $this->partialLoop('partials/_blog-row.phtml', $this->blogs); ?>
+	</table>
+<?php else: ?>
+	<p>There are no blog posts created yet.</p>
+<?php endif; ?>
+<p><a href="/blog/create">Create a Post</a></p>

@@ -1,0 +1,121 @@
+body {
+	font-family:Verdana, Helvetica, Arial, sans-serif;
+	font-size: 10px;
+	color: #999;
+}
+#navigation li a {
+	color: #666;
+	font-weight: bold;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 1.2em;
+}
+	#navigation li a:hover, #navigation li a.selected {
+		color: #0087c7;
+	}
+	
+h1{
+	font-size: 22px;
+	color: #686868;
+	font-weight: normal;
+	
+}
+
+.single_middle h1 {
+	margin-bottom: 30px;
+}
+#post_title h1 {
+	color: #3e3f3e;
+	font-size: 24px;
+}
+h2 {
+	font-size: 18px;
+	color: #0787c6;
+	padding-bottom: 8px;
+	margin-right: 10px;
+}
+
+.featured-text h2 {
+	background-image: url(../_img/h_border.png);
+	background-repeat: repeat-x;
+	background-position: bottom;
+}
+a:link {
+	color: #0787c6;
+	font-weight:bold;
+	text-decoration: none;
+}
+a:visited {
+	color: #349fd2;
+	text-decoration: none;
+	font-weight: bold;
+}
+a:hover {
+	color: #308aca;
+	text-decoration: underline;
+}
+a:active {
+	color: #666;
+}
+
+li a:link { color: #666666; font-size: 12px; font-weight:bold; }
+li a:visited { color: #666666; font-size: 12px; font-weight:bold; text-decoration:none; }
+li a:hover { text-decoration:none; color:#349fd2;  }
+
+p {
+	font-size: 1.1em;
+	padding-top: 15px;
+	line-height: 1.5em;
+}
+
+div#left_content_interior p.content { color:#3e3f3e; font-size: 1.15em;}
+
+.triple_middle h2, .blogListing h2 {
+	font-size: 14px;
+	font-weight: bold;
+}
+.triple_middle a:link, .blogListing a:link {
+	text-decoration:none;
+	color: #0787c6;
+}
+.triple_middle a:visited, .blogListing a:visited {
+	text-decoration:none;
+	color: #0787c6;
+}
+.triple_middle a:hover, .blogListing a:hover {
+	text-decoration:none;
+	color: #349fd2;
+}
+.triple_middle a:active, .blogListing a:active {
+	text-decoration:none;
+	color: #0787c6;
+}
+
+
+.triple_middle p, .blogListing p {
+	padding-top: 0px;
+	line-height: 1.3em;
+}
+
+.triple_middle .readMore, .blogListing .readMore { 
+	font-style: italic;
+	margin: 4px 0;
+}
+.readMore {
+	text-align: right;
+	font-size: .9em;
+}
+.readMore a:hover {
+	text-decoration:none;
+}
+
+.linklabel, .caption, .infoText { font-size: .95em; }
+a.linklabel:hover, p.caption a:hover, p.infoText a:hover  { text-decoration:none; }
+.commentLink { text-align: right; }
+#footer {
+	font-weight: bold;
+}
+#footer p {
+	font-size: .9em;
+	padding-top: 0;
+}

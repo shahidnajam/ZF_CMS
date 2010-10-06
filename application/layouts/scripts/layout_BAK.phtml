@@ -1,0 +1,63 @@
+<?php echo '<?xml version="1.0" encoding="UTF-8" ?>'?>
+<?php echo $this->doctype(); ?>
+<?php $this->layout()->nav = $this->action('render', 'menu', null, array('menuId'=>$this->mainMenuId)); ?>
+<?php $this->layout()->adminMenu = $this->action('render', 'menu', null, array('menuId'=>$this->adminMenuId)); ?>
+<?php $this->layout()->userForm = $this->action('index', 'user'); ?>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <?php echo $this->headTitle(); ?>
+    
+    <?php echo $this->loadConditionalJavascript($this->jsFlag); ?>
+	
+	<?php echo $this->loadSkin($this->skin); ?>
+    
+</head>
+<body>
+	<div id="pageWrapper" class="container">
+		<div id="header">
+			<h1>Zend Framework CMS</h1>
+		</div>
+		<div id="nav">
+			<?php echo $this->layout()->nav; ?>
+		</div>
+		<div id="sidebar" class="span-8 last">
+			<div id="searchForm">
+				<h2>Search Site</h2>
+				<?php $searchForm = new Form_Search();?>
+				<?php $searchForm->setAction('/search');?>
+				<?php echo $searchForm; ?>
+				<br />
+			</div>
+			<div id="adminMenu">
+			
+				<?php echo $this->layout()->adminMenu; ?>
+			</div>
+			<div id="userForm">
+				<?php echo $this->layout()->userForm; ?>
+			</div>
+			<div id="feeds">
+				<h2>RSS</h2>
+				<p><a href="/feed/rss">Click here</a> to subscribe to our feed.</p>
+			</div>
+			<div id="tagCloud">
+				<h2>Tags</h2>
+				<?php echo $this->tagCloud(); ?>
+			</div>
+		</div>
+		<div id="main" class="span-16 last">
+			<div id="content">
+				<?php echo $this->layout()->content; ?>
+			</div>
+		</div>
+		<div id="footer">
+			<p><em>Powered by Zend Framework</em></p>
+		</div>
+	</div>
+</body>
+
+<?php $this->addScriptPath(APPLICATION_PATH.'/views/scripts'); ?>
+<?php echo $this->render('util/profiler.phtml'); ?>
+
+</html>

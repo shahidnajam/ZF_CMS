@@ -1,0 +1,157 @@
+<?php echo '<?xml version="1.0" encoding="UTF-8" ?>'?>
+<?php echo $this->doctype(); ?>
+<?php $this->layout()->nav = $this->action('render', 'menu', null, array('menuId'=>$this->mainMenuId)); ?>
+<?php $this->layout()->adminMenu = $this->action('render', 'menu', null, array('menuId'=>$this->adminMenuId)); ?>
+<?php $this->layout()->userForm = $this->action('index', 'user'); ?>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <?php echo $this->headTitle(); ?>
+    
+    <?php echo $this->loadConditionalJavascript($this->jsFlag); ?>
+	
+	<?php echo $this->loadSkin($this->skin); ?>
+    
+</head>
+<body>
+	<div id="outerContainer">
+		<div id="container">
+			<div id="navigation">
+				<?php echo $this->layout()->nav; ?>
+				<form method="post" id="headerSearch" action="/search" class="navSearchForm">
+					<div id="search_left"></div>
+					<input type="text" class="search_field" name="query" id="query" value="Search..."  />
+					<div id="search_right"></div>
+					<input name="submit" type="image" src="/_uploads/images/search_btn.png" class="search_btn" value="Go!" />
+				</form>
+			</div><!-- end nav -->
+			
+			<div id="title">
+				<h1>DevDamra - Web Development &amp; Design</h1>
+			</div><!-- end title -->
+			
+			<div id="featured">
+			
+				<div class="featured_image">
+					<img src="/_uploads/images/featured_image.png" alt="Featured Image" />
+				</div><!-- featured image ends -->
+				
+				<div class="featured_text">
+					<h2>My Title Goes Here</h2>
+					<p>
+						Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+						Nam cursus. Morbi ut mi. Nullam enim leo, egestas id, 
+						condimentum at, laoreet mattis, massa. Sed eleifend 
+						nonummy diam. 
+					</p>
+					<p>
+						Lorem ipsum dolor sit amet, consectetuer asd sdeefe in
+						adipiscing elit. Nam cursus. Morbi ut mi. Nullam enim leo, 
+						egestas id, condimentum at, laoreet mattis, massa. Sed 
+						eleifend nonummy diam. 
+					</p>
+					<p class="readMore"><a href="#3">Read More... <em>(22 Comments)</em></a></p>
+				</div><!-- featured text ends -->
+			
+			</div><!-- end featured -->
+			
+			<div id="mainContent">	
+					
+				<div id="left_content">
+				
+					<?php echo $this->layout()->content; ?>
+
+				</div><!-- left content ends -->
+				
+				<div id="right_content">
+					
+					<div class="midSingle_top"></div><!-- midSingle top ends -->
+					
+					<div class="midSingle_middle">
+						<h1>Static Content Page Title</h1>
+						<p>
+							Lorem ipsum dolor sit amet, <a href="#1">consectetur adipisicing</a> elit, 
+							sed do eiusm tempor incididunt ut labore et dolore magna aliqua. Ut enim  
+							veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea 
+							commodo consequat. Duis aute irure dolor in reprehenderit. 
+						</p>
+						<p>
+							Excepteur sint occaecat cupidatat non proident, sunt in culpa qui offi 
+							deserunt mollit anim id est laborum.  <a href="#2">Sed ut perspiciatis</a> 
+							natus error sit voluptatem accusantium doloremque laudantium, totam 
+							rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi arch 
+							beatae vitae dicta sunt explicabo. 
+						</p>
+						<p>	
+							Ut enim ad minima veniam, quis nostrum exercitationem ullam corpori 
+							suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis 
+							autem vel eum iure reprehenderit qui in ea voluptate velit esse qu 
+							nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluu 
+							nulla pariatur?
+						</p>
+					</div><!-- midSingle middle ends -->
+					
+					<div class="midSingle_bottom"></div><!-- midSingle top ends -->
+				</div><!-- right content ends -->
+				
+			</div><!-- end mainContent -->
+			
+			
+			<div id="footer">
+				<p id="copyright">Copyright &copy; dev.philipdamra.com | All Rights Reserved | Powered by Zend Framework</p>
+				<p id="footerMenu"><a href="/user">Log In</a></p>
+			</div>
+			<?php $this->addScriptPath(APPLICATION_PATH.'/views/scripts'); ?>
+			<?php echo $this->render('util/profiler.phtml'); ?>
+		</div><!-- end container -->
+		
+	</div><!-- end outer container -->
+
+
+<!-- 
+	<div id="pageWrapper" class="container">
+		<div id="header">
+			<h1>Zend Framework CMS</h1>
+		</div>
+		<div id="nav">
+			<?php echo $this->layout()->nav; ?>
+		</div>
+		<div id="sidebar" class="span-8 last">
+			<div id="searchForm">
+				<h2>Search Site</h2>
+				<?php $searchForm = new Form_Search();?>
+				<?php $searchForm->setAction('/search');?>
+				<?php echo $searchForm; ?>
+				<br />
+			</div>
+			<div id="adminMenu">
+			
+				<?php echo $this->layout()->adminMenu; ?>
+			</div>
+			<div id="userForm">
+				<?php echo $this->layout()->userForm; ?>
+			</div>
+			<div id="feeds">
+				<h2>RSS</h2>
+				<p><a href="/feed/rss">Click here</a> to subscribe to our feed.</p>
+			</div>
+			<div id="tagCloud">
+				<h2>Tags</h2>
+				<?php echo $this->tagCloud(); ?>
+			</div>
+		</div>
+		<div id="main" class="span-16 last">
+			<div id="content">
+				<?php echo $this->layout()->content; ?>
+			</div>
+		</div>
+		<div id="footer">
+			<p><em>Powered by Zend Framework</em></p>
+		</div>
+	</div>
+	-->
+
+</body>
+
+</html>

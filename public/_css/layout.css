@@ -1,0 +1,51 @@
+body {
+	font-size: 10px;
+	background-color: #aaa;
+}
+
+#pageWrapper {
+	margin-bottom: .5em;
+	background-color: #999;
+}
+#header {
+	padding: .5em;
+	margin-bottom: .5em;
+	background-color: #fff;
+	height: 7.5em;
+}
+#nav {
+	padding: .5em;
+	margin-bottom: .5em;
+	background-color: #fff;
+	height: 2.5em;
+}
+#sidebar {
+	padding: .5em;
+	margin-bottom: .5em;
+	background-color:#ccc;
+	float: right;
+	height: 40em;
+}
+
+#main {
+	margin-bottom: .5em;
+	background-color: #fff;
+	height: 41em;
+}
+#content {
+	padding: .5em;
+}
+#subNav, #adminMenu, #userForm {
+	padding: .5em;
+	margin-bottom: .5em;
+	background-color:#fff;
+	height: 10em;
+}
+#footer {
+	padding: .5em;
+	margin-bottom: .5em;
+	clear: both;
+	background-color:#fff;
+	height: 2.5em;
+	margin:0;
+}

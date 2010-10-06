@@ -1,0 +1,7 @@
+<h2>My Account</h2>
+<?php if($this->identity == null):?>
+	<?php echo $this->form; ?>
+<?php else: ?>
+	<p>Welcome back, <?php echo $this->identity->first_name; ?></p>
+	<p>To log out, <a href="/user/logout">click here</a></p>
+<?php endif; ?>

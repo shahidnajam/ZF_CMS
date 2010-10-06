@@ -1,0 +1,13 @@
+<tr>
+	<td>
+		<a href="/bug/edit/id/<?php echo $this->id; ?>">Edit</a> |
+		<a href="/bug/delete/id/<?php echo $this->id; ?>" 
+			onclick="return confirm('Are you sure? This cannot be undone!');">Delete</a>
+	</td>
+	<td><?php echo date('m/d/Y',$this->date); ?></td>
+	<td><?php echo $this->priority; ?></td>
+	<td><?php echo $this->status; ?></td>
+	<td><?php echo $this->url; ?></td>
+	<td><?php echo $this->author; ?></td>
+	<td><?php echo $this->description; ?></td>
+</tr>

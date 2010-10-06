@@ -1,0 +1,39 @@
+
+<script src="/_js/sorttable.js"></script>
+<?php
+$db = Zend_Db_Table::getDefaultAdapter();
+$profiler = $db->getProfiler();
+if($profiler->getEnabled() && $profiler->getTotalNumQueries() > 0)
+{
+	?>
+	<div style="text-align: center; width:100%; clear:both;">
+		<h2>Database Profiling Report</h2>
+		<p>Total Queries Executed: <strong><?php echo $profiler->getTotalNumQueries(); ?></strong></p>
+		<p>Total Elapsed Time: <strong><?php echo round($profiler->getTotalElapsedSecs()*1000, 5); ?> ms</strong></p>
+	</div>
+	<table class="spreadsheet sortable" style="margin: 10px auto;">
+		<thead>
+			<tr>
+				<th class="sorttable_numeric">#</th>
+				<th>Query</th>
+				<th>Time</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php 
+			foreach($profiler->getQueryProfiles() as $qNum=>$q)
+			{
+			?>
+				<tr>
+					<td>(<?php echo $qNum+1; ?>)</td>
+					<td><?php echo $q->getQuery(); ?></td>
+					<td><?php echo round($q->getElapsedSecs()*1000, 5); ?></td>
+				</tr>
+			<?php 
+			}
+		?>
+		</tbody>
+	</table>
+	<?php
+}
+?>
