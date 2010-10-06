@@ -84,7 +84,7 @@ body {
 		width: 19px;
 		margin-right: 10px;
 	}
-	.search_field {
+	form#headerSearch input.search_field {
 		float:left;
 		background-color: transparent;
 		background-image: url(../_img/search_field.png);
@@ -94,6 +94,7 @@ body {
 		border: none;
 		padding: 12px 0;
 		color: #aaa;
+        margin: 0;
 	}
 	.search_btn {
 		float:left;

@@ -11,6 +11,7 @@ class Form_BugReportForm extends Zend_Form
 		$author = $this->createElement('text', 'author');
 		$author->setLabel('Enter Your Name: ')
 			->setRequired(TRUE)
+                ->setAttrib('class', 'title')
 			->setAttrib('size', 30);
 		$this->addElement($author);
 		
@@ -19,7 +20,7 @@ class Form_BugReportForm extends Zend_Form
 		$email->setLabel('Your Email Address: ')
 			->setRequired(TRUE)
 			->addValidator(new Zend_Validate_EmailAddress())
-			->setAttrib('size', 40)
+			->setAttrib('class', 'title')
 			->addFilters(array(
 				new Zend_Filter_StringTrim(),
 				new Zend_Filter_StringToLower()
@@ -31,22 +32,21 @@ class Form_BugReportForm extends Zend_Form
 		$date->setLabel("Date the issue occurred (mm-dd-yyyy)")
 			->setRequired(TRUE)
 			->addValidator(new Zend_Validate_Date('mm-dd-yyyy'))
-			->setAttrib('size', 20);
+			->setAttrib('class', 'title');
 		$this->addElement($date);
 			
 		//add URL textbox element
 		$url = $this->createElement('text', 'url');
 		$url->setLabel('Issue URL: ')
 			->setRequired(TRUE)
-			->setAttrib('size', 50);
+			->setAttrib('class', 'title');
 		$this->addElement($url);
 		
 		//add description textarea
 		$description = $this->createElement('textarea','description');
 		$description->setLabel('Issue Description: ')
 			->setRequired(TRUE)
-			->setAttrib('cols',50)
-			->setAttrib('rows', 4);
+			->setAttrib('class', 'title');
 		$this->addElement($description);
 		
 		//add priority select box
@@ -57,7 +57,8 @@ class Form_BugReportForm extends Zend_Form
 				'low'=>'Low',
 				'med'=>'Medium',
 				'high'=>'High'
-			));
+			))
+            ->setAttrib('class', 'title');
 		$this->addElement($priority);
 				
 		//add status select box
@@ -68,7 +69,8 @@ class Form_BugReportForm extends Zend_Form
 				'new'=>'New',
 				'in_progress'=>'In Progress',
 				'resolved'=>'Resolved'
-			));
+			))
+            ->setAttrib('class', 'title');;
 		$this->addElement($status);
 		
 		//add submit button

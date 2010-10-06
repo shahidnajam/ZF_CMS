@@ -8,7 +8,7 @@ class Form_SearchForm extends Zend_Form
         // element options
         $query->setLabel('Keywords');
         $query->setRequired(true);
-        $query->setAttrib('size',20);
+        $query->setAttrib('class', 'title');
         // add the element to the form
         $this->addElement($query);
         

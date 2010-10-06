@@ -31,7 +31,8 @@ class Contact_IndexController extends Zend_Controller_Action
 				'password'=>$this->config->zfcms->email->password
 			);
 			$transport = new Zend_Mail_Transport_Smtp($this->config->zfcms->email->host, $config);
-			
+			//look here: http://framework.zend.com/manual/en/zend.application.available-resources.html
+            //for info on configuring the transport directly in the config file
 			$fileControl = $contactForm->getElement('attachment');
 			if($fileControl->isUploaded())
 			{

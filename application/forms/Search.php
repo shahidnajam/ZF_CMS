@@ -6,7 +6,7 @@ class Form_Search extends Zend_Form
 		$query = $this->createElement('text', 'query')->
 			setLabel("Keywords: ")->
 			setRequired(true)->
-			setAttrib('size', 20)->
+            setAttrib('class', 'title')->
 			setDecorators(array(
 	   			array('ViewHelper'), 
 	   			array('Errors'),

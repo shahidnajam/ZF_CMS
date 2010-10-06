@@ -17,11 +17,12 @@ class Form_MenuItem extends Zend_Form
 		$label->setLabel('Label: ');
 		$label->setRequired(true);
 		$label->addFilter('StripTags');
-		$label->setAttrib('size', 40);
+		$label->setAttrib('class', 'title');
 		$this->addElement($label);
 		
 		$pageId = $this->createElement('select', 'page_id');
 		$pageId->setLabel('Select a page to link to: ');
+        $pageId->setAttrib('class', 'title');
 		$pageId->setRequired(true);
 		
 		$pageModel = new Model_Page();
@@ -39,7 +40,7 @@ class Form_MenuItem extends Zend_Form
 		$link = $this->createElement("text", 'link');
 		$link->setLabel('or specify a link: ');
 		$link->setRequired(FALSE);
-		$link->setAttrib('size',50);
+		$link->setAttrib('class', 'title');
 		$this->addElement($link);
 		
 		$submit = $this->addElement('submit', 'submit', array('label'=>'Submit'));

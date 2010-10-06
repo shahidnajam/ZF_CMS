@@ -16,16 +16,18 @@ class Form_BugListToolsForm extends Zend_Form
 		$sort = $this->createElement('select', 'sort');
 		$sort->setLabel("Sort Records By: ");
 		$sort->addMultiOptions($options);
+        $sort->setAttrib('class', 'title');
 		$this->addElement($sort);
 		
 		$filterField = $this->createElement('select', 'filter_field');
 		$filterField->setLabel("Filter By: ");
 		$filterField->addMultiOptions($options);
+        $filterField->setAttrib('class', 'title');
 		$this->addElement($filterField);
 		
 		$filter = $this->createElement('text', 'filter');
 		$filter->setLabel('Search For:');
-		$filter->setAttrib('size', '40');
+		$filter->setAttrib('class', 'title');
 		$this->addElement($filter);
 		
 		$this->addElement('submit', 'submit', array('label'=>'Update List'));
