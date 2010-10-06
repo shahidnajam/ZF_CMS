@@ -311,10 +311,6 @@ ul.Zend_Tag_Cloud li {
 	padding-right: 7px;
 	line-height: 24px;
 }
-ul.Zend_Tag_Cloud li a:link { font-weight:normal; color: #666; font-weight: normal; text-decoration:none; }
-ul.Zend_Tag_Cloud li a:visited { font-weight:normal; color: #666; font-weight: normal; text-decoration:none; }
-ul.Zend_Tag_Cloud li a:hover { font-weight:normal; color: #349fd2; font-weight: normal; text-decoration:none; }
-ul.Zend_Tag_Cloud li a:active { font-weight:normal; color: #666; font-weight: normal; text-decoration:none; }
 
 .smallSingle_bottom {
 	background-image: url(../_img/smallSingle_bottom.png);

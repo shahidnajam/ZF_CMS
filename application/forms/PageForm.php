@@ -4,6 +4,7 @@ class Form_PageForm extends Zend_Form
 	public function init()
 	{
 		$this->setAttrib('enctype', 'multipart/form-data');
+        $this->setAttrib('class', 'pageForm');
 		//
 		$id = $this->createElement('hidden', 'id');
 		$id->setDecorators(array('ViewHelper'));
@@ -14,14 +15,14 @@ class Form_PageForm extends Zend_Form
 		$name->setLabel('Page Name: ');
 		$name->addFilter('Alnum', array('allowWhiteSpace'=>true));
 		$name->setRequired(TRUE);
-		$name->setAttrib('size', 40);
+		$name->setAttrib('class', 'title');
 		$this->addElement($name);
 		
 		//
 		$headline = $this->createElement('text', 'headline');
 		$headline->setLabel('Headline: ');
 		$headline->setRequired(TRUE);
-		$headline->setAttrib('size', 40);
+		$headline->setAttrib('class', 'title');
 		$this->addElement($headline);
 	
 		/*
@@ -39,16 +40,13 @@ class Form_PageForm extends Zend_Form
 		$description = $this->createElement('textarea', 'description');
 		$description->setLabel('Description: ');
 		$description->setRequired(TRUE);
-		$description->setAttrib('cols', 40);
-		$description->setAttrib('rows', 4);
+		$description->setAttrib('class', 'title');
 		$this->addElement($description);
 		
 		//
 		$content = $this->createElement('textarea', 'pageContent');
 		$content->setLabel('Content: ');
 		$content->setRequired(TRUE);
-		$content->setAttrib('cols', 40);
-		$content->setAttrib('rows', 8);
 		$this->addElement($content);
 		
 		//
