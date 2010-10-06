@@ -1,0 +1,17 @@
+<h2>Search Results</h2>
+<?php if(is_array($this->results) && count($this->results) > 0):?>
+	<p>Your search for the <?php echo $this->searchType; ?> <em><?php echo $this->keywords; ?></em> returned <?php echo count($this->results);?> results.</p>
+	<?php foreach($this->results as $res):?>
+		<h3>
+			<a href="/<?php echo $res->namespace?>/view/id/<?php echo $res->page_id; ?>/title/<?php 
+					$filter = new Zend_Filter_Alnum(); 
+					echo $filter->setAllowWhiteSpace(true)->filter($res->page_name); 
+				?>">
+				<?php echo $res->page_headline?>
+			</a>
+		</h3>
+		<p><em><?php echo $res->page_description; ?></em></p>
+	<?php endforeach;?>
+<?php else:?>
+	<p>Your search did not return any results.</p>
+<?php endif;?>

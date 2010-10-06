@@ -1,0 +1,16 @@
+<script>
+$(document).ready(function(){ 
+	$('#recaptcha_response_field').css('border', '1px inset #fafafa'); 
+});
+</script>
+<h2>Contact Us</h2>
+<?php if($this->messageProcessed && $this->sendError):?>
+	<p>Sorry, there has been an error sending your message. Please contact 
+	<?php echo $this->contactEmail; ?> for assistance.</p>
+<?php elseif($this->messageProcessed && !$this->sendError): ?>
+	<p>Thank you for contacting us. We will be in touch soon.</p>
+<?php else: ?>
+	<p>To send us a message, please complete the form below and click "Send Message".</p>
+<?php endif; ?>
+
+<?php echo $this->form; ?>

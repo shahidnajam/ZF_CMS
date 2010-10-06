@@ -1,0 +1,143 @@
+<?php echo '<?xml version="1.0" encoding="UTF-8" ?>'?>
+<?php echo $this->doctype(); ?>
+<?php $this->layout()->nav = $this->action('render', 'menu', null, array('menuId'=>$this->mainMenuId)); ?>
+<?php $this->layout()->adminMenu = $this->action('render', 'menu', null, array('menuId'=>$this->adminMenuId)); ?>
+<?php $this->layout()->userForm = $this->action('index', 'user'); ?>
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <?php echo $this->headTitle(); ?>
+    
+    <?php echo $this->loadConditionalJavascript($this->jsFlag); ?>
+	
+	<?php echo $this->loadSkin($this->skin); ?>
+    
+</head>
+<body>
+	<div id="outerContainer">
+		<div id="container">
+			<div id="navigation">
+				<?php echo $this->layout()->nav; ?>
+				<form method="post" id="headerSearch" action="/search" class="navSearchForm">
+					<div id="search_left"></div>
+					<input type="text" class="search_field" name="query" id="query" value="Search..."  />
+					<div id="search_right"></div>
+					<input name="submit" type="image" src="/_uploads/images/search_btn.png" class="search_btn" value="Go!" />
+				</form>
+			</div><!-- end nav -->
+			
+			<div id="title_interior">
+				<h1>DevDamra - Web Development &amp; Design</h1>
+			</div><!-- end title -->
+			
+			<div id="mainContent">	
+					
+				<div id="left_content_interior">
+					<div class="single_top"></div><!-- singlebox top ends -->
+					<div class="single_middle">
+						<?php echo $this->layout()->content; ?>
+					</div><!-- singlebox middle ends -->
+					<div class="single_bottom"></div><!-- singlebox bottom ends -->
+				</div><!-- left content ends -->
+				
+				<div id="right_content_interior">
+					<div class="smallSingle_top"></div><!-- smallSinglebox top ends -->
+					<div class="smallSingle_middle">
+						<div id="categoryMenuContainer">
+							<h2>Categories</h2>
+							<ul id="categoryMenu">
+								<li class="php"><a href="#">PHP Tutorials</a></li>
+								<li class="flexbuilder"><a href="#">Flex Builder Tutorials</a></li>
+								<li class="htmlcss"><a href="#">HTML/CSS Tutorials</a></li>
+								<li class="javascriptjquery"><a href="#">Javascript/jQuery Tutorials</a></li>
+								<li class="flash"><a href="#">Flash Tutorials</a></li>
+								<li class="photoshop"><a href="#">Photoshop Tutorials</a></li>
+							</ul>
+						</div>
+						<div class="divider" ></div>
+						<div id="tagCloud">
+							<h2>Tags</h2>
+							<?php echo $this->tagCloud(); ?>
+							<!-- 
+							<ul class="Zend_Tag_Cloud">
+								<li><a style="font-size:14px;" href="#">AIR</a></li>
+								<li><a style="font-size:16px;" href="#">APIs</a></li>  
+								<li><a style="font-size:12px;" href="#">Blueprint</a></li>
+								<li><a style="font-size:16px;" href="#">CSS</a></li>  
+								<li><a style="font-size:12px;" href="#">Email</a></li>  
+								<li><a style="font-size:18px;" href="#">Flex Builder</a></li>
+								<li><a style="font-size:12px;" href="#">HTML</a></li>  
+								<li><a style="font-size:16px;" href="#">jQuery</a></li> 
+								<li><a style="font-size:12px;" href="#">MVC</a></li>  
+								<li><a style="font-size:10px;" href="#">OOP</a></li> 
+								<li><a style="font-size:10px;" href="#">Photoshop</a></li>
+								<li><a style="font-size:18px;" href="#">PHP</a></li>  
+								<li><a style="font-size:12px;" href="#">Zend_AMF</a></li>
+								<li><a style="font-size:16px;" href="#">Zend Framework</a></li>
+							</ul> -->
+						</div>
+					</div><!-- smallSinglebox middle ends -->
+					<div class="smallSingle_bottom"></div><!-- smallSinglebox bottom ends -->
+				</div><!-- right content ends -->
+				
+			</div><!-- end mainContent -->
+			
+			
+			<div id="footer">
+				<p id="copyright">Copyright &copy; dev.philipdamra.com | All Rights Reserved | Powered by Zend Framework</p>
+				<p id="footerMenu"><a href="/user">Log In</a></p>
+			</div>
+			<?php $this->addScriptPath(APPLICATION_PATH.'/views/scripts'); ?>
+			<?php echo $this->render('util/profiler.phtml'); ?>
+		</div><!-- end container -->
+		
+	</div><!-- end outer container -->
+
+
+<!-- 
+	<div id="pageWrapper" class="container">
+		<div id="header">
+			<h1>Zend Framework CMS</h1>
+		</div>
+		<div id="nav">
+			<?php echo $this->layout()->nav; ?>
+		</div>
+		<div id="sidebar" class="span-8 last">
+			<div id="searchForm">
+				<h2>Search Site</h2>
+				<?php $searchForm = new Form_Search();?>
+				<?php $searchForm->setAction('/search');?>
+				<?php echo $searchForm; ?>
+				<br />
+			</div>
+			<div id="adminMenu">
+			
+				<?php echo $this->layout()->adminMenu; ?>
+			</div>
+			<div id="userForm">
+				<?php echo $this->layout()->userForm; ?>
+			</div>
+			<div id="feeds">
+				<h2>RSS</h2>
+				<p><a href="/feed/rss">Click here</a> to subscribe to our feed.</p>
+			</div>
+			<div id="tagCloud">
+				<h2>Tags</h2>
+				<?php echo $this->tagCloud(); ?>
+			</div>
+		</div>
+		<div id="main" class="span-16 last">
+			<div id="content">
+				<?php echo $this->layout()->content; ?>
+			</div>
+		</div>
+		<div id="footer">
+			<p><em>Powered by Zend Framework</em></p>
+		</div>
+	</div>
+	-->
+
+</body>
+
+</html>
