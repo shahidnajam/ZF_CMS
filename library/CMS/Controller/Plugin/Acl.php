@@ -16,6 +16,7 @@ class CMS_Controller_Plugin_Acl extends Zend_Controller_Plugin_Abstract
 		$acl->add(new Zend_Acl_Resource('index'));
 		$acl->add(new Zend_Acl_Resource('error'));
 		$acl->add(new Zend_Acl_Resource('blog'));
+		$acl->add(new Zend_Acl_Resource('bug'));
 		$acl->add(new Zend_Acl_Resource('page'));
 		$acl->add(new Zend_Acl_Resource('menu'));
 		$acl->add(new Zend_Acl_Resource('menuitem'));

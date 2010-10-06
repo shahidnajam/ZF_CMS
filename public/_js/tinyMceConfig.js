@@ -8,7 +8,7 @@ $().ready(function() {
 		skin:'o2k7',
 		skin_variant:'black',
 		plugins : "style,advimage,advlink,iespell,inlinepopups,preview,media,print,contextmenu,paste,noneditable,visualchars,xhtmlxtras,template,advlist,spellchecker",
-		
+		height: '500',
 		// Theme options
 		theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,|,preview,code",
 		theme_advanced_buttons2 : "bullist,numlist,blockquote,|,sub,sup,|,undo,redo,|,link,unlink,anchor,|,image,media,|,removeformat,pasteword,|,iespell,spellchecker,|,print",
