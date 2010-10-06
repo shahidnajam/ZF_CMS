@@ -60,6 +60,7 @@ class BlogController extends Zend_Controller_Action
         $blogForm->setAction('/blog/create');
         $this->view->form = $blogForm;
         array_push($this->view->jsFlag, 'tagCloud');
+		array_push($this->view->jsFlag, 'tinymce');
     }
 
     public function listAction()
@@ -130,7 +131,7 @@ class BlogController extends Zend_Controller_Action
 		
 		$this->view->form = $blogForm;
 		array_push($this->view->jsFlag, 'tagCloud');
-		
+		array_push($this->view->jsFlag, 'tinymce');
 	}
 	
 	public function deleteAction()
