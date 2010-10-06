@@ -18,6 +18,7 @@ class Zend_View_Helper_LoadConditionalJavascript extends Zend_View_Helper_Abstra
 		{
 			$this->view->headScript()->offsetSetFile(101,'/_js/tagCloudForm.js');
 		}
+		$this->view->headScript()->offsetSetFile(100,'/_js/client.js');
 		return $this->view->headScript();
 	}
 }

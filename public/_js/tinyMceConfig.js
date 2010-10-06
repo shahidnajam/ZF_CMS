@@ -1,5 +1,5 @@
 $().ready(function() {
-	$('#pageContent').tinymce({
+	$('#pageContent, #blogContent').tinymce({
 		// Location of TinyMCE script
 		script_url : '/_js/tiny_mce/tiny_mce.js',
 

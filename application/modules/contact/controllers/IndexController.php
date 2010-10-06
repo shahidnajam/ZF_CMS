@@ -27,10 +27,10 @@ class Contact_IndexController extends Zend_Controller_Action
 			//config SMTP
 			$config = array(
 				'auth'=>'login',
-				'username'=>'philip+philipdamra.com',
-				'password'=>'hjklay'
+				'username'=>$this->config->zfcms->email->username,
+				'password'=>$this->config->zfcms->email->password
 			);
-			$transport = new Zend_Mail_Transport_Smtp('mail.philipdamra.com', $config);
+			$transport = new Zend_Mail_Transport_Smtp($this->config->zfcms->email->host, $config);
 			
 			$fileControl = $contactForm->getElement('attachment');
 			if($fileControl->isUploaded())
