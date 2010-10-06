@@ -21,6 +21,7 @@ class CMS_Controller_Plugin_Acl extends Zend_Controller_Plugin_Abstract
 		$acl->add(new Zend_Acl_Resource('menu'));
 		$acl->add(new Zend_Acl_Resource('menuitem'));
 		$acl->add(new Zend_Acl_Resource('user'));
+		$acl->add(new Zend_Acl_Resource('portfolio'));
 		$acl->add(new Zend_Acl_Resource('search'));
 		$acl->add(new Zend_Acl_Resource('feed'));
 		
@@ -29,6 +30,7 @@ class CMS_Controller_Plugin_Acl extends Zend_Controller_Plugin_Abstract
 		
 		//a guest can only read content and login
 		$acl->allow('guest', 'feed');
+		$acl->allow('guest', 'portfolio');
 		$acl->allow('guest', 'blog', array('index', 'view'));
 		$acl->allow('guest', 'page', array('index', 'view'));
 		$acl->allow('guest', 'menu', array('render'));
