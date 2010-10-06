@@ -3,7 +3,7 @@
 .build*
 .flex*
 .proje*
-.zfpro*
+.zfproject/*
 Table*
 *nbproject
 sleekSilver/*
