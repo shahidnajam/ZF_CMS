@@ -7,3 +7,6 @@
 Table*
 *nbproject
 sleekSilver/*
+cache/*
+application/indexes/*
+public/_uploads/*
