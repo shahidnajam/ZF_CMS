@@ -40,6 +40,7 @@ jQuery(document).ready(function($){
 		return true;
 	}
 	function successHandler(responseText, statusText, xhr, $form){
+		Recaptcha.reload();
 	}
 	$('body').delegate('.ajax-form', 'submit', function(){
 		$(this).ajaxSubmit(ajaxFormOptions);
