@@ -33,13 +33,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		$view->jsFlag = array(); 
 		$view->doctype('XHTML1_STRICT');
 		$view->headTitle('ZFCMS');
-		$view->headScript()->
-			appendFile(
-				'/_js/jquery.js',
-				'text/javascript'
-			);
-			
-			$view->skin = 'silver';
+		$view->headScript()->appendFile('/_js/jquery.js', 'text/javascript');
+		$view->headScript()->appendFile('/_js/jquery-ui.js', 'text/javascript');
+		$view->headScript()->appendFile('/_js/jquery.form.js', 'text/javascript');
+		$view->headScript()->appendFile('/_js/application.js', 'text/javascript');
+		$view->skin = 'silver';
 		
 		//add it to the viewrenderer
 		$viewrenderer = Zend_Controller_Action_HelperBroker::getStaticHelper('ViewRenderer');

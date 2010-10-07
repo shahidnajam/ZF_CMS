@@ -1,4 +1,4 @@
-$('document').ready(function(){
+jQuery('document').ready(function($){
 	$('#hideTags').appendTo('#tags-element');
 	$('div#hideTags ul.Zend_Tag_Cloud li a').click(function(){
 		var tagFieldContents = $('#tags').val();

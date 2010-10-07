@@ -112,9 +112,7 @@ class BlogController extends Zend_Controller_Action
 		}
 		
 		$blogFormData = $itemBlog->toArray();
-		
 		$blogFormData['tags'] = $tagModel->getTagsByPage($id);
-		
 		$blogForm->populate($blogFormData);
 		
 		//image preview
@@ -174,6 +172,22 @@ class BlogController extends Zend_Controller_Action
 		{
 			$commentsModel = new Model_Comment();
 			$this->view->comments = $commentsModel->getCommentsByPage($id);
+			$commentForm = new Form_Comment();
+			$commentForm->setAction('/blog/comment/id/'.$id);
+			$commentForm->getElement('id')->setValue($id);
+			if($this->_request->isPost() && $commentForm->isValid($_POST))
+			{
+				echo "FOO";
+				$data = array(
+					'page_id'=>$id,
+					'name'=>$commentForm->getValue('name'),
+					'email'=>$commentForm->getValue('email'),
+					'timestamp'=>time(),
+					'content'=>nl2br($commentForm->getValue('content'))
+				);
+				$commentsModel->insert($data);
+			}
+			$this->view->form = $commentForm;
 		}
 		$this->view->blog = $blog;
 		$tagModel = new Model_Tag();
@@ -181,7 +195,28 @@ class BlogController extends Zend_Controller_Action
 		$this->view->tags = $tags;
 	}
 	
-	
+	public function commentAction()
+	{
+		$this->_helper->layout->disableLayout();
+		$id = $this->_request->getParam('id');
+		$commentForm = new Form_Comment();
+		$commentForm->setAction('/blog/comment/id/'.$id);
+		$commentForm->getElement('id')->setValue($id);
+		$commentsModel = new Model_Comment();
+		if($this->_request->isPost() && $commentForm->isValid($_POST))
+		{
+			$data = array(
+				'page_id'=>$id,
+				'name'=>$commentForm->getValue('name'),
+				'email'=>$commentForm->getValue('email'),
+				'timestamp'=>time(),
+				'content'=>nl2br($commentForm->getValue('content'))
+			);
+			$commentsModel->insert($data);
+		}
+		$this->view->form = $commentForm;
+		$this->view->comments = $commentsModel->getCommentsByPage($id);
+	}
 }
 
 
