@@ -1,0 +1,17 @@
+<div class="blogListing">
+    <div class="<?php echo $this->category_id; ?>">
+        <h2>
+            <a href="/blog/view/id/<?php echo $this->id; ?>/title/<?php echo $this->name; ?>">
+                <?php echo $this->headline; ?>
+            </a>
+        </h2>
+        <p>
+            <?php echo $this->description; ?>
+        </p>
+        <p class="readMore">
+            <a href="/blog/view/id/<?php echo $this->id; ?>/title/<?php echo $this->name; ?>">
+                Read More...
+            </a>
+        </p>
+    </div>
+</div><!-- blogListing -->
