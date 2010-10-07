@@ -1,0 +1,13 @@
+<?php if(count($this->comments) == 0):?>
+	<p>No Comments Yet...</p>
+<?php else:?>
+	<h2>Comments:</h2>
+	<?php foreach($this->comments as $comment):?>
+		<?php $n=1; ?>
+		<div class="comment">
+			<p><strong>Name: </strong><?php echo $comment->name; ?></p>
+			<p><strong>Time: </strong><?php echo date('m/d/Y g:ia',$comment->timestamp); ?></p>
+			<p class="commentContent"><?php echo $comment->content; ?></p>
+		</div>
+	<?php endforeach;?>
+<?php endif;?>
