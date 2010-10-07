@@ -1,7 +1,7 @@
 body {
 	font-family:Verdana, Helvetica, Arial, sans-serif;
 	font-size: 10px;
-	color: #999;
+	color: #808080;
 }
 #navigation li a {
 	color: #666;
@@ -109,6 +109,8 @@ div#left_content_interior p.content { color:#3e3f3e; font-size: 1.15em;}
 	text-decoration:none;
 }
 
+.blogContent { font-size: 11px; }
+
 .linklabel, .caption, .infoText { font-size: .95em; }
 a.linklabel:hover, p.caption a:hover, p.infoText a:hover  { text-decoration:none; }
 .commentLink { text-align: right; }
@@ -127,17 +129,38 @@ ul.Zend_Tag_Cloud li a:active { font-weight:normal; color: #666; font-weight: no
 
 label {font-weight:bold;}
 
-input[type=text], input[type=password], input.text, input.title, textarea, select {background-color:#fff;border:1px solid #bbb;}
+input[type=text], input[type=password], input.text, input.title, textarea, select {background-color:#fff;border:1px solid #DFDFDF;}
 input[type=text]:focus, input[type=password]:focus, input.text:focus, input.title:focus, textarea:focus, select:focus {border-color:#666;}
 input[type=text], input[type=password], input.text, input.title, textarea, select {margin:0.5em 0;}
 input.text, input.title {width:470px;padding:5px;}
 input.title, select.title {font-size:1.5em;}
 select.title {width: 480px; padding: 5px; }
 textarea {width:470px;height:250px;padding:5px;}
-textarea.title {
+textarea {
     font-family:Verdana, Helvetica, Arial, sans-serif;
 	font-size: 1.5em;
     padding: 5px;
 }
-form.pageForm textarea#description, textarea#tags {height: 100px; }
+dl.zend_form dt{margin-top: 6px; }
+
+form.pageForm textarea#description, textarea#tags, textarea.commentForm {height: 100px; }
 input[type=checkbox], input[type=radio], input.checkbox, input.radio {position:relative;top:.25em;}
+.commentForm { padding: 5px; }
+input.commentForm { width:430px; }
+select.commentForm { width: 440px;  }
+textarea.commentForm { width: 430px; }
+#submit-element {text-align: right; }
+
+#commentForm { background-color: #fafafa; padding: 10px 20px 20px 20px; margin: 40px 0 10px 0;  }
+#commentForm h2 { font-size: 1.3em; margin: 10px 0; }
+
+#comments{ margin: 20px 0 0 0; padding: 10px 20px 0 20px; border: 1px solid #e6e6e6; }
+#comments h2 { font-size: 1.4em; margin: 10px 0; }
+
+div.comment{
+	padding: 15px; 
+	background-color: #f6f6f6;
+	border: 1px solid #efefef;
+	margin-bottom: 20px;
+}
+div.comment p { padding-top: 6px; }
