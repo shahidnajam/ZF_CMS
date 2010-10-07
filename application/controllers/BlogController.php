@@ -10,7 +10,22 @@ class BlogController extends Zend_Controller_Action
 
     public function indexAction()
     {
+        $filterField = 'category_id';
+        $filterValue = 'all';
+        $filter = ($filterValue != 'all') ? array($filterField=>$filterValue) : null;
+        
         $blogModel = new Model_Blog();
+        $adapter = $blogModel->fetchPaginatorAdapter($filter);
+        
+        $paginator = new Zend_Paginator($adapter);
+        $paginator->setItemCountPerPage(3);
+        $page = $this->_request->getParam('page',1);
+		$paginator->setCurrentPageNumber($page);
+        //we are doing a paginator, not returning the data straight from the model
+        //$featuredItems = $blogModel->getRecentBlogs();
+        
+        //We aren't doing the whole "first three entries are featured, then show the rest" thing
+        /*
         $recentBlogs = $blogModel->getRecentBlogs();
         if(is_array($recentBlogs))
         {
@@ -22,10 +37,13 @@ class BlogController extends Zend_Controller_Action
         		}
         	}
         }
-        $this->view->featuredItems = $featuredItems;
+         */
+        //$this->view->recentBlogs = (count($recentBlogs) > 0) ? $recentBlogs : null ;
         
-        $this->view->recentBlogs = (count($recentBlogs) > 0) ? $recentBlogs : null ;
-        
+        //$this->view->featuredItems = $featuredItems;
+        require_once('/Applications/MAMP/bin/php5.2/lib/php/FirePHPCore/fb.php');
+        FB::log($paginator);
+        $this->view->paginator = $paginator;
     }
 
     public function createAction()
