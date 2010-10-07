@@ -143,7 +143,7 @@ textarea {
 }
 dl.zend_form dt{margin-top: 6px; }
 
-form.pageForm textarea#description, textarea#tags, textarea.commentForm {height: 100px; }
+form.pageForm textarea#description, textarea#tags, textarea.commentForm, textarea#message {height: 100px; }
 input[type=checkbox], input[type=radio], input.checkbox, input.radio {position:relative;top:.25em;}
 .commentForm { padding: 5px; }
 input.commentForm { width:430px; }

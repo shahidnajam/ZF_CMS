@@ -95,7 +95,7 @@ class BugController extends Zend_Controller_Action
 		
 		//set 10 results per page
 		//TODO:allow user to select results per page
-		$paginator->setItemCountPerPage(10);
+		$paginator->setItemCountPerPage(1);
 		
 		//get the page number from request - default to 1
 		$page = $this->_request->getParam('page',1);
