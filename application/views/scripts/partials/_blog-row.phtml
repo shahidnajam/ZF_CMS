@@ -1,7 +1,11 @@
 <tr>
 	<td class="links">
-		<a href="/blog/edit/id/<?php echo $this->id; ?>">Update</a>&nbsp;|&nbsp;
-		<a href="/blog/delete/id/<?php echo $this->id; ?>">Delete</a>
+		<a class="ui-state-default ui-corner-all button" href="/blog/edit/id/<?php echo $this->id; ?>">
+			<span class="ui-icon ui-icon-pencil"></span>
+		</a>
+		<a class="ui-state-default ui-corner-all button" href="/blog/delete/id/<?php echo $this->id; ?>">
+			<span class="ui-icon ui-icon-trash"></span>
+		</a>
 	</td>
 	<td><a href="/blog/view/id/<?php echo $this->id; ?>"><?php echo $this->name; ?></a></td>
 </tr>

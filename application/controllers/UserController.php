@@ -92,13 +92,14 @@ class UserController extends Zend_Controller_Action
 	   				$userForm->getValue('last_name'),
 	   				$userForm->getValue('role')
 	   			);
+	   			return $this->_forward('list');
 	   		}
 	   		else 
 	   		{
 		   		$id = $this->_request->getParam('id');
 		   		$currentUser = $userModel->find($id)->current();
+		   		$userForm->populate($currentUser->toArray());
 	   		}
-	   		$userForm->populate($currentUser->toArray());
 	   		$this->view->form = $userForm;
    		}
    }

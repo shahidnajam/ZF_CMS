@@ -376,9 +376,14 @@ ul.Zend_Tag_Cloud li {
 
 #footer p { 
 	float: left;
-	margin: 23px 18px;
+	margin: 18px 18px 23px 18px;
+	padding: 0 5px 0 10px;
 }
-
+#footer p#copyright{
+	float: left;
+	margin: 23px 18px;
+	padding: 0 5px 0 10px;
+}
 #footer p#footerMenu {
 	text-align: right;
 	float: right;
@@ -401,8 +406,8 @@ ul.Zend_Tag_Cloud li {
 #admin-menu ul li {
 	list-style-type:none;
 	float:left;
-	margin: 1px 1px;
-	padding: 0 2px 0 3px;
+	margin: 1px 2px;
+	padding: 0 3px 0 4px;
 	border-left: 1px solid #8d8d8d;
 }
 #admin-menu ul > li:first-child {
@@ -410,5 +415,5 @@ ul.Zend_Tag_Cloud li {
 }
 #admin-menu ul li a {
 	font-size: .85em;
-	font-weight: normal;	
+	font-weight: bold;
 }
