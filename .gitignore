@@ -11,3 +11,4 @@ cache/zend*
 application/indexes/*
 public/_uploads/*
 application/indexes/*
+application/configs/application.ini

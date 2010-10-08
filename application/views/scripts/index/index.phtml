@@ -23,16 +23,10 @@
 		
 		<div class="triple_bottom"></div><!-- triplebox bottom ends -->
 	<?php endforeach;?>
+<?php else: ?>
+    <div class="triple_top"></div><!-- triplebox top ends -->
+    <div class="triple_middle">
+        <p>No tutorials could be found...</p>
+    </div>
+    <div class="triple_bottom"></div><!-- triplebox bottom ends -->
 <?php endif;?>
-<?php if($this->recentBlogs):?>
-	<div class="recentBlogs">
-		<h3>More Blogs</h3>
-		<ul>
-			<?php foreach($this->recentBlogs as $blog):?>
-				<li>
-					<a href="/blog/view/id/<?php echo $blog->id; ?>"><?php echo $blog->headline;?></a>
-				</li>
-			<?php endforeach;?>
-		</ul>
-	</div>
-<?php endif; ?>

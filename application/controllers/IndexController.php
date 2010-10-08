@@ -13,6 +13,7 @@ class IndexController extends Zend_Controller_Action
     	$this->_helper->layout->setLayout('home');
         $blogModel = new Model_Blog();
         $recentBlogs = $blogModel->getRecentBlogs('4');
+        $featuredItems = array();
         if(is_array($recentBlogs))
         {
         	for($i=1; $i<=3; $i++)
@@ -24,8 +25,6 @@ class IndexController extends Zend_Controller_Action
         	}
         }
         $this->view->featuredItems = $featuredItems;
-        
-        $this->view->recentBlogs = (count($recentBlogs) > 0) ? $recentBlogs : null ;
     }
 }
 

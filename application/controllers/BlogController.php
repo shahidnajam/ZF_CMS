@@ -16,13 +16,19 @@ class BlogController extends Zend_Controller_Action
         
         $blogModel = new Model_Blog();
         $adapter = $blogModel->fetchPaginatorAdapter($filter);
-        
-        $paginator = new Zend_Paginator($adapter);
-        $paginator->setItemCountPerPage(3);
-        $page = $this->_request->getParam('page',1);
-		$paginator->setCurrentPageNumber($page);
-                
-        $this->view->paginator = $paginator;
+        if($adapter)
+        {
+            $paginator = new Zend_Paginator($adapter);
+            $paginator->setItemCountPerPage(3);
+            $page = $this->_request->getParam('page',1);
+            $paginator->setCurrentPageNumber($page);
+
+            $this->view->paginator = $paginator;
+        }
+        else
+        {
+            $this->view->paginator = false;
+        }
     }
 
     public function createAction()

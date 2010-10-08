@@ -157,7 +157,7 @@ class Model_Blog extends Zend_Db_Table_Abstract
     public function fetchPaginatorAdapter($filter=array())
     {        
         $blogs = $this->getRecentBlogs(0);
-        $adapter = new Zend_Paginator_Adapter_Array($blogs);
+        $adapter = (empty($blogs)) ? false : new Zend_Paginator_Adapter_Array($blogs);
         return $adapter;
 
     }
