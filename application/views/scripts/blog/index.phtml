@@ -3,17 +3,3 @@
 	<?php echo $this->partialLoop('blog/blog-list.phtml', $this->paginator); ?>
     <?php echo $this->paginationControl($this->paginator, 'Sliding', 'partials/pagination-control.phtml')?>
 <?php endif;?>
-<?php /*
-<?php if($this->recentBlogs):?>
-	<div class="recentBlogs">
-		<h3>More Blogs</h3>
-		<ul>
-			<?php foreach($this->recentBlogs as $blog):?>
-				<li>
-					<a href="/blog/view/id/<?php echo $blog->id; ?>"><?php echo $blog->headline;?></a>
-				</li>
-			<?php endforeach;?>
-		</ul>
-	</div>
-<?php endif; ?>
- */ ?>

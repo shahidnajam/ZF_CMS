@@ -11,21 +11,14 @@ class PageController extends Zend_Controller_Action
     public function indexAction()
     {
         $pageModel = new Model_Page();
-        $recentPages = $pageModel->getRecentPages();
-        if(is_array($recentPages))
-        {
-        	for($i=1; $i<=3; $i++)
-        	{
-        		if(count($recentPages) > 0)
-        		{
-        			$featuredItems[] = array_shift($recentPages);
-        		}
-        	}
-        }
-        $this->view->featuredItems = $featuredItems;
+        $adapter = $pageModel->fetchPaginatorAdapter();
         
-        $this->view->recentPages = (count($recentPages) > 0) ? $recentPages : null ;
-        
+        $paginator = new Zend_Paginator($adapter);
+        $paginator->setItemCountPerPage(6);
+        $page = $this->_request->getParam('page',1);
+		$paginator->setCurrentPageNumber($page);
+                
+        $this->view->paginator = $paginator;
     }
 
     public function createAction()
