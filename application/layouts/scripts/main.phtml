@@ -85,14 +85,15 @@
 			
 			
 			<div id="footer">
-				<p id="copyright">&copy; <?php echo date('Y')?> philipdamra.com | Powered by Zend Framework</p>		
+				<p id="copyright">&copy; <?php echo date('Y')?> philipdamra.com | Powered by Zend Framework</p>
 				<?php $auth = Zend_Auth::getInstance(); ?>
         		<?php if($auth->hasIdentity()): ?>
 					<div id="admin-menu"><?php echo $this->layout()->adminMenu; ?></div>
 				<?php else: ?>
-					<p id="footerMenu"><a href="/user">Log In</a></p>
-				<?php endif; ?>	
+					<p id="footerMenu" class="button"><a href="/user">Log In</a></p>
+				<?php endif; ?>
 			</div>
+            
 			<?php $this->addScriptPath(APPLICATION_PATH.'/views/scripts'); ?>
 			<?php echo $this->render('util/profiler.phtml'); ?>
 		</div><!-- end container -->

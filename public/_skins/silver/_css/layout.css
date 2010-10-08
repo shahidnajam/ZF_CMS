@@ -407,7 +407,7 @@ ul.Zend_Tag_Cloud li {
 	list-style-type:none;
 	float:left;
 	margin: 1px 2px;
-	padding: 0 3px 0 4px;
+	padding: 0 3px 0 6px;
 	border-left: 1px solid #8d8d8d;
 }
 #admin-menu ul > li:first-child {
@@ -416,4 +416,8 @@ ul.Zend_Tag_Cloud li {
 #admin-menu ul li a {
 	font-size: .85em;
 	font-weight: bold;
+    color: #808080;
+}
+#admin-menu ul li a:hover {
+    color: #0787C6;
 }
