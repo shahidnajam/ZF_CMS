@@ -115,7 +115,10 @@ div#left_content_interior p.content { color:#3e3f3e; font-size: 1.15em;}
 .readMore a:hover {
 	text-decoration:none;
 }
-
+p.readMore{
+    padding: 0;
+    margin: 0;
+}
 .blogContent { font-size: 11px; }
 
 .linklabel, .caption, .infoText { font-size: .95em; }
