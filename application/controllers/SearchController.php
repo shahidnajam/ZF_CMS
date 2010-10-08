@@ -1,5 +1,4 @@
 <?php
-require_once('/Applications/MAMP/bin/php5.2/lib/php/FirePHPCore/fb.php');
 class SearchController extends Zend_Controller_Action
 {
 
@@ -137,12 +136,10 @@ class SearchController extends Zend_Controller_Action
         $currentBlogs = $blogModel->fetchAll($sql);
         if($currentBlogs->count() > 0)
         {
-            FB::log($currentBlogs, "blogs");
         	//create a search document for each page
         	foreach($currentBlogs as $b)
         	{
         		$blog = new CMS_Content_Item_Blog($b->id);
-                FB::log($blog);
         		//add the documents to the index
         		$index->addDocument($this->_buildIndex($b, $blog, 'blogContent'));
         	}
@@ -163,7 +160,6 @@ class SearchController extends Zend_Controller_Action
    		$doc->addField(Zend_Search_Lucene_Field::text('page_headline', $content->headline));
    		$doc->addField(Zend_Search_Lucene_Field::text('page_description', $content->description));
    		$doc->addField(Zend_Search_Lucene_Field::text('page_content', $content->$contentType));
-   		FB::log($doc, 'doc');
    		return $doc;
 	}
 }
