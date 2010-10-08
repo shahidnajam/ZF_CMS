@@ -1,7 +1,9 @@
+<h1>Recent Posts</h1>
 <?php if($this->paginator):?>
-	<h1>Recent Posts</h1>
 	<div class="listContainer">
 		<?php echo $this->partialLoop('blog/blog-list.phtml', $this->paginator); ?>
 	</div>
     <?php echo $this->paginationControl($this->paginator, 'Sliding', 'partials/pagination-control.phtml')?>
+<?php else:?>
+	<p>No posts have been published yet.</p>
 <?php endif;?>

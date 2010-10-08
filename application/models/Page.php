@@ -152,7 +152,7 @@ class Model_Page extends Zend_Db_Table_Abstract
 	public function fetchPaginatorAdapter($filter=array())
     {        
         $pages = $this->getRecentPages(0);
-        $adapter = new Zend_Paginator_Adapter_Array($pages);
+        $adapter = (empty($pages)) ? false : new Zend_Paginator_Adapter_Array($pages);
         return $adapter;
 
     }

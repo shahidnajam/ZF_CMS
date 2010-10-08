@@ -12,13 +12,19 @@ class PageController extends Zend_Controller_Action
     {
         $pageModel = new Model_Page();
         $adapter = $pageModel->fetchPaginatorAdapter();
-        
-        $paginator = new Zend_Paginator($adapter);
-        $paginator->setItemCountPerPage(6);
-        $page = $this->_request->getParam('page',1);
-		$paginator->setCurrentPageNumber($page);
-                
-        $this->view->paginator = $paginator;
+        if($adapter)
+        {
+            $paginator = new Zend_Paginator($adapter);
+            $paginator->setItemCountPerPage(6);
+            $page = $this->_request->getParam('page',1);
+            $paginator->setCurrentPageNumber($page);
+
+            $this->view->paginator = $paginator;
+        }
+        else
+        {
+            $this->view->paginator = false;
+        }
     }
 
     public function createAction()
