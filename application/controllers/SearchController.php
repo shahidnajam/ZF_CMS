@@ -32,7 +32,10 @@ class SearchController extends Zend_Controller_Action
         	elseif($this->_hasParam('category'))
         	{
         		$catModel = new Model_Category();
-        		$pagesArray = $catModel->getPagesByCategory($this->_request->getParam('category'));
+        		$category = $this->_request->getParam('category');
+        		$category = str_replace('-', ' ', $category);
+        		$category = str_replace('_', '/', $category);
+        		$pagesArray = $catModel->getPagesByCategory($category);
         		$this->getBlogPostsForView($pagesArray, 'category');        		
         	}
         	else { $this->view->results = null; }

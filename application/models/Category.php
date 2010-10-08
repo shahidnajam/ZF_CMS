@@ -20,7 +20,8 @@ class Model_Category extends Zend_Db_Table_Abstract
 	
 	public function getPagesByCategory($category)
 	{
-		$sql = $this->select()->where('category=?', $category);
+		$category = '%'.$category.'%';
+		$sql = $this->select()->where('category LIKE ?', $category);
 		$row = $this->fetchRow($sql);
 		if($row)
 		{
