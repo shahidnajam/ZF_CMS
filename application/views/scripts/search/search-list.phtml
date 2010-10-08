@@ -1,0 +1,11 @@
+<div class="blogListing">
+    <h3>
+        <a href="/<?php echo $this->namespace?>/view/id/<?php echo $this->page_id; ?>/title/<?php
+                $filter = new Zend_Filter_Alnum();
+                echo $filter->setAllowWhiteSpace(true)->filter($this->page_name);
+            ?>">
+            <?php echo $this->page_headline?>
+        </a>
+    </h3>
+    <p><em><?php echo $this->page_description; ?></em></p>
+</div>
