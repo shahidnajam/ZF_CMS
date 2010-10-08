@@ -135,7 +135,7 @@ class Model_Page extends Zend_Db_Table_Abstract
 		$select = $this->select();
 		$select->order('date_created DESC');
 		$select->where('namespace=?',$namespace);
-		$select->limit($count);
+		if($count > 0) { $select->limit($count); }
 		$results = $this->fetchAll($select);
 		if($results->count() > 0)
 		{
@@ -148,4 +148,12 @@ class Model_Page extends Zend_Db_Table_Abstract
 		}
 		return null;
 	}
+	
+	public function fetchPaginatorAdapter($filter=array())
+    {        
+        $pages = $this->getRecentPages(0);
+        $adapter = new Zend_Paginator_Adapter_Array($pages);
+        return $adapter;
+
+    }
 }

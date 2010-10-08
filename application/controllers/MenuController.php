@@ -89,9 +89,9 @@ class MenuController extends Zend_Controller_Action
 			$bootstrap = $this->getInvokeArg('bootstrap');
 			$cache = $bootstrap->getResource('cache');
 			$cacheKey = 'menu_'.$menuId;
-			//attempt to load the menu from cache
+			//attempt to load the menu from cache if it is not the main menu
 			$container = $cache->load($cacheKey);
-			if(!$container)
+			if(!$container || $menuId == 1)
 			{
 				//if the menu is not cached, build and cache it
 				$menuItemModel = new Model_MenuItem();
@@ -115,10 +115,18 @@ class MenuController extends Zend_Controller_Action
 							$page = new CMS_Content_Item_Page($item->page_id);
 							$uri = '/page/view/id/'.$item->page_id.'/title/'.$page->name;
 						}
+						$menuItem = array('label'=>$label, 'uri'=>$uri, 'class'=>'');
 						
-						$itemArray[] = array('label'=>$label, 'uri'=>$uri);
+						$uri = $this->getRequest()->getRequestUri();	
+						$uriParts = array_values(array_filter(explode('/', $uri)));
+						$linkParts = array_values(array_filter(explode('/', $item->link)));
+						
+						if($linkParts[0] == $uriParts[0])
+						{
+							$menuItem['class'] = 'selected';
+						}
+						$itemArray[] = $menuItem;
 					}
-					
 					$container = new Zend_Navigation($itemArray);
 					//cache the container
 					$cache->save($container, $cacheKey, $tags);
