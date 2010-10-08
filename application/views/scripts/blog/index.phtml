@@ -1,5 +1,7 @@
 <?php if($this->paginator):?>
 	<h1>Recent Posts</h1>
-	<?php echo $this->partialLoop('blog/blog-list.phtml', $this->paginator); ?>
+	<div class="listContainer">
+		<?php echo $this->partialLoop('blog/blog-list.phtml', $this->paginator); ?>
+	</div>
     <?php echo $this->paginationControl($this->paginator, 'Sliding', 'partials/pagination-control.phtml')?>
 <?php endif;?>

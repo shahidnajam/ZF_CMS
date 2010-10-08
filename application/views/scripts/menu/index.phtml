@@ -2,7 +2,8 @@
 <?php if($this->menus != null):?>
 	<table class="spreadsheet">
 		<tr>
-			<th>Links</th>
+			<th>Edit/Delete</th>
+			<th>Manage</th>
 			<th>Menu Name</th>
 		</tr>
 		<?php echo $this->partialLoop('partials/_menu-row.phtml', $this->menus);?>
