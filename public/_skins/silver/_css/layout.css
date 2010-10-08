@@ -391,3 +391,24 @@ ul.Zend_Tag_Cloud li {
 	background-repeat: repeat-x;
 	min-height: 2px;
 }
+#admin-menu {
+	margin: 23px 18px;
+	float:right;
+}
+#admin-menu ul {
+	float:left;
+}
+#admin-menu ul li {
+	list-style-type:none;
+	float:left;
+	margin: 1px 1px;
+	padding: 0 2px 0 3px;
+	border-left: 1px solid #8d8d8d;
+}
+#admin-menu ul > li:first-child {
+	border:none;
+}
+#admin-menu ul li a {
+	font-size: .85em;
+	font-weight: normal;	
+}

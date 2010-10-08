@@ -85,58 +85,19 @@
 			
 			
 			<div id="footer">
-				<p id="copyright">Copyright &copy; dev.philipdamra.com | All Rights Reserved | Powered by Zend Framework</p>
-				<p id="footerMenu"><a href="/user">Log In</a></p>
+				<p id="copyright">&copy; <?php echo date('Y')?> philipdamra.com | All Rights Reserved | Powered by Zend Framework</p>		
+				<?php $auth = Zend_Auth::getInstance(); ?>
+        		<?php if($auth->hasIdentity()): ?>
+					<div id="admin-menu"><?php echo $this->layout()->adminMenu; ?></div>
+				<?php else: ?>
+					<p id="footerMenu"><a href="/user">Log In</a></p>
+				<?php endif; ?>	
 			</div>
 			<?php $this->addScriptPath(APPLICATION_PATH.'/views/scripts'); ?>
 			<?php echo $this->render('util/profiler.phtml'); ?>
 		</div><!-- end container -->
 		
 	</div><!-- end outer container -->
-
-
-<!-- 
-	<div id="pageWrapper" class="container">
-		<div id="header">
-			<h1>Zend Framework CMS</h1>
-		</div>
-		<div id="nav">
-			<?php echo $this->layout()->nav; ?>
-		</div>
-		<div id="sidebar" class="span-8 last">
-			<div id="searchForm">
-				<h2>Search Site</h2>
-				<?php $searchForm = new Form_Search();?>
-				<?php $searchForm->setAction('/search');?>
-				<?php echo $searchForm; ?>
-				<br />
-			</div>
-			<div id="adminMenu">
-			
-				<?php echo $this->layout()->adminMenu; ?>
-			</div>
-			<div id="userForm">
-				<?php echo $this->layout()->userForm; ?>
-			</div>
-			<div id="feeds">
-				<h2>RSS</h2>
-				<p><a href="/feed/rss">Click here</a> to subscribe to our feed.</p>
-			</div>
-			<div id="tagCloud">
-				<h2>Tags</h2>
-				<?php echo $this->tagCloud(); ?>
-			</div>
-		</div>
-		<div id="main" class="span-16 last">
-			<div id="content">
-				<?php echo $this->layout()->content; ?>
-			</div>
-		</div>
-		<div id="footer">
-			<p><em>Powered by Zend Framework</em></p>
-		</div>
-	</div>
-	-->
 
 </body>
 
