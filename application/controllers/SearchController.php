@@ -1,5 +1,5 @@
 <?php
-
+require_once('/Applications/MAMP/bin/php5.2/lib/php/FirePHPCore/fb.php');
 class SearchController extends Zend_Controller_Action
 {
 
@@ -16,7 +16,21 @@ class SearchController extends Zend_Controller_Action
         	$query = Zend_Search_Lucene_Search_QueryParser::parse($keywords);
         	$index = Zend_Search_Lucene::open(APPLICATION_PATH.'/indexes');
         	$hits = $index->find($query);
-        	$this->view->results = $hits;
+
+            $results = array();
+            foreach($hits as $hit)
+            {
+                $result = array(
+                    'page_id'=>$hit->page_id,
+                    'namespace'=>$hit->namespace,
+                    'page_name'=>$hit->page_name,
+                    'page_headline'=>$hit->page_headline,
+                    'page_description'=>$hit->page_description
+                );
+
+               $results[] = $result;
+            }
+        	//$this->view->results = $hits;//old returning array to view
         	$this->view->keywords = $keywords;
         	$this->view->searchType = "keyword";
         }
@@ -26,7 +40,8 @@ class SearchController extends Zend_Controller_Action
         	{
         		$tagModel = new Model_Tag();
         		$pagesArray = $tagModel->getPagesByTag($this->_request->getParam('tag'));
-        		$this->getBlogPostsForView($pagesArray, 'tag');
+                //
+        		$results = $this->getBlogPostsForView($pagesArray, 'tag');
         		
         	}
         	elseif($this->_hasParam('category'))
@@ -36,10 +51,22 @@ class SearchController extends Zend_Controller_Action
         		$category = str_replace('-', ' ', $category);
         		$category = str_replace('_', '/', $category);
         		$pagesArray = $catModel->getPagesByCategory($category);
-        		$this->getBlogPostsForView($pagesArray, 'category');        		
+                //
+        		$results = $this->getBlogPostsForView($pagesArray, 'category');
         	}
-        	else { $this->view->results = null; }
+        	else { $hits = array(); }
         }
+        //new use paginator
+        if($results)
+        {
+            $adapter = new Zend_Paginator_Adapter_Array($results);
+            $paginator = new Zend_Paginator($adapter);
+            $paginator->setItemCountPerPage(6);
+            $page = $this->_request->getParam('page',1);
+            $paginator->setCurrentPageNumber($page);
+            $this->view->paginator = $paginator;
+        }
+        $this->view->count = count($results);
     }
     
     private function getBlogPostsForView($pagesArray=array(), $searchType)
@@ -63,9 +90,12 @@ class SearchController extends Zend_Controller_Action
   					$pages[] = $pg;
   				}
   			}
-  			$this->view->results = $pages;
+            
   			$this->view->keywords = $this->_request->getParam($searchType);
   			$this->view->searchType = $searchType;
+  			//$this->view->results = $pages;//old pass array to view
+            //new return array for adapter
+            return $pages;
   		}
     }
 
@@ -107,10 +137,12 @@ class SearchController extends Zend_Controller_Action
         $currentBlogs = $blogModel->fetchAll($sql);
         if($currentBlogs->count() > 0)
         {
+            FB::log($currentBlogs, "blogs");
         	//create a search document for each page
         	foreach($currentBlogs as $b)
         	{
         		$blog = new CMS_Content_Item_Blog($b->id);
+                FB::log($blog);
         		//add the documents to the index
         		$index->addDocument($this->_buildIndex($b, $blog, 'blogContent'));
         	}
@@ -131,7 +163,7 @@ class SearchController extends Zend_Controller_Action
    		$doc->addField(Zend_Search_Lucene_Field::text('page_headline', $content->headline));
    		$doc->addField(Zend_Search_Lucene_Field::text('page_description', $content->description));
    		$doc->addField(Zend_Search_Lucene_Field::text('page_content', $content->$contentType));
-   		
+   		FB::log($doc, 'doc');
    		return $doc;
 	}
 }

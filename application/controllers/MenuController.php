@@ -117,7 +117,8 @@ class MenuController extends Zend_Controller_Action
 						}
 						$menuItem = array('label'=>$label, 'uri'=>$uri, 'class'=>'');
 						
-						$uri = $this->getRequest()->getRequestUri();	
+						$uri = $this->getRequest()->getRequestUri();
+                        $uri = ($uri == '/') ? '/index/index' : $uri;
 						$uriParts = array_values(array_filter(explode('/', $uri)));
 						$linkParts = array_values(array_filter(explode('/', $item->link)));
 						

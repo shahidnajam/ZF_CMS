@@ -64,10 +64,17 @@ li a:hover { text-decoration:none; color:#349fd2;  }
 
 p {
 	font-size: 1.1em;
-	padding-top: 15px;
+	padding: 6px 0 9px 0;
 	line-height: 1.5em;
 }
 
+p.top {
+    margin-bottom: 20px;
+}
+
+p.bottom {
+    margin-top: 20px;
+}
 div#left_content_interior p.content { color:#3e3f3e; font-size: 1.15em;}
 
 .triple_middle h2, .blogListing h2 {
