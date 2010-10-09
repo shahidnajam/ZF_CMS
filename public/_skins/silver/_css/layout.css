@@ -352,7 +352,8 @@ ul.Zend_Tag_Cloud li {
 	background-image: url(../_img/midSingle_middle.png);
 	background-repeat: repeat-y;
 	float: left;
-	height: 400px;
+	min-height: 398px;
+	overflow:visible;
 	width: 411px;
 	padding: 0 20px 0px 30px; 
 }

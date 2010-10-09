@@ -46,12 +46,15 @@ class BlogController extends Zend_Controller_Action
         	$itemBlog->blogContent = $blogForm->getValue('blogContent');
         	$itemBlog->comments = $blogForm->getValue('comments');
         	
+        	/*
         	//upload the image
         	if($blogForm->image->isUploaded())
         	{
         		$blogForm->image->receive();
         		$itemBlog->image = '/_uploads/images/'.basename($blogForm->image->getFileName());
         	}
+        	*/
+        	
         	$id = $itemBlog->save();
         	
         	//save tags
@@ -99,12 +102,15 @@ class BlogController extends Zend_Controller_Action
         	$itemBlog->blogContent = $blogForm->getValue('blogContent');
         	$itemBlog->comments = $blogForm->getValue('comments');
         	
+        	/*
         	//upload the image
         	if($blogForm->image->isUploaded())
         	{
         		$blogForm->image->receive();
         		$itemBlog->image = '/_uploads/images/'.basename($blogForm->image->getFileName());
         	}
+        	*/
+        	
         	$itemBlog->save();
         	
         	$tags = $blogForm->getValue('tags');
@@ -117,7 +123,7 @@ class BlogController extends Zend_Controller_Action
 		$blogFormData = $itemBlog->toArray();
 		$blogFormData['tags'] = $tagModel->getTagsByPage($id);
 		$blogForm->populate($blogFormData);
-		
+		/*
 		//image preview
 		$imagePreview = $blogForm->createElement('image', 'image_preview');
 		
@@ -129,7 +135,7 @@ class BlogController extends Zend_Controller_Action
 		$imagePreview->setOrder(4);
 		$imagePreview->setImage($itemBlog->image);
 		$blogForm->addElement($imagePreview);
-		
+		*/
 		$this->view->form = $blogForm;
 		array_push($this->view->jsFlag, 'tagCloud');
 		array_push($this->view->jsFlag, 'tinymce');

@@ -116,7 +116,7 @@ div#left_content_interior p.content { color:#3e3f3e; font-size: 1.15em;}
 	line-height: 1.3em;
 }
 
-.triple_middle .readMore, .blogListing .readMore { 
+.triple_middle .readMore, .readMore { 
 	font-style: italic;
 	margin: 4px 0;
 }
@@ -154,6 +154,7 @@ label {font-weight:bold;}
 input[type=text], input[type=password], input.text, input.title, textarea, select {background-color:#fff;border:1px solid #DFDFDF;}
 input[type=text]:focus, input[type=password]:focus, input.text:focus, input.title:focus, textarea:focus, select:focus {border-color:#666;}
 input[type=text], input[type=password], input.text, input.title, textarea, select {margin:0.5em 0;}
+input#comments { margin: 0 0 15px 0; }
 input.text, input.title {width:470px;padding:5px;}
 input.title, select.title {font-size:1.5em;}
 select.title {width: 480px; padding: 5px; }

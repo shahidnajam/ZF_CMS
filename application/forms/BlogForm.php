@@ -32,7 +32,7 @@ class Form_BlogForm extends Zend_Form
 		$headline->setAttrib('class', 'title');
 		$this->addElement($headline);
 	
-		//
+		/*
 		$image = $this->createElement('file', 'image');
 		$image->setLabel("Image: ");
 		$image->setRequired(FALSE);
@@ -41,7 +41,7 @@ class Form_BlogForm extends Zend_Form
 		$image->addValidator('Size', false, 1024000);
 		$image->addValidator('Extension', false, 'jpg,png,gif');
 		$this->addElement($image);
-		
+		*/
 		//
 		$description = $this->createElement('textarea', 'description');
 		$description->setLabel('Description: ');

@@ -154,6 +154,16 @@ class Model_Page extends Zend_Db_Table_Abstract
         $pages = $this->getRecentPages(0);
         $adapter = (empty($pages)) ? false : new Zend_Paginator_Adapter_Array($pages);
         return $adapter;
-
     }
+    
+	public function getHomepageContent($area="welcomeContent")
+	{
+		$select = $this->select()->where('name=?', $area)->limit(1);
+		$result = $this->fetchRow($select);
+		if($result)
+		{
+			return new CMS_Content_Item_Page($result->id);
+		}
+		return null;
+	}
 }
