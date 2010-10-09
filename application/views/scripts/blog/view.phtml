@@ -1,5 +1,5 @@
 <div id="viewBlog">
-	<h1><?php echo $this->blog->headline; ?></h1>
+	<h1 class="pageHeading"><?php echo $this->blog->headline; ?></h1>
     <blockquote class="top"><?php echo $this->blog->description; ?></blockquote>
 	<?php if(!empty($this->blog->image)):?>
 		<img id="mainImage" src="<?php echo $this->blog->image; ?>" alt="<?php echo $this->blog->headline; ?>" />

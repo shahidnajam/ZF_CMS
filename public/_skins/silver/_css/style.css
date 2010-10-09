@@ -21,8 +21,16 @@ h1{
 	
 }
 
-.single_middle h1 {
-	margin-bottom: 30px;
+#right_content h1 {
+	margin-bottom: 15px;
+}
+
+#left_content_interior div.single_middle h1 {
+	margin-bottom: 20px;
+}
+#left_content_interior div.single_middle h1.pageHeading {
+	font-size: 26px;
+	margin-top: 10px;
 }
 #post_title h1 {
 	color: #3e3f3e;
