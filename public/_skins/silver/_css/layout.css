@@ -160,7 +160,7 @@ body {
 	float: left;
 	width: 372px;
 	padding: 2px 20px 0 30px;
-	min-height: 80px;
+	height: 88px;
 }
 	.triple_middle div, .blogListing div {
 		padding-left: 100px;
@@ -323,7 +323,7 @@ ul.Zend_Tag_Cloud li {
 
 .blogListing {
 	margin-bottom: 30px;
-	padding-bottom: 10px;
+	padding-bottom: 4px;
 	background-position: center bottom;
 	background-image: url(../_img/border.png);
 	background-repeat: repeat-x;
@@ -352,7 +352,7 @@ ul.Zend_Tag_Cloud li {
 	background-image: url(../_img/midSingle_middle.png);
 	background-repeat: repeat-y;
 	float: left;
-	min-height: 400px;
+	height: 400px;
 	width: 411px;
 	padding: 0 20px 0px 30px; 
 }

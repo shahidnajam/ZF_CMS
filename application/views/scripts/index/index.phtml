@@ -7,11 +7,11 @@
 			<div class="<?php echo $blog->category_id; ?>">
 				<h2>
 					<a href="/blog/view/id/<?php echo $blog->id; ?>/title/<?php echo $blog->name; ?>">
-						<?php echo $blog->headline; ?>
+						<?php echo (strlen($blog->headline) < 26) ? $blog->headline : rtrim(substr($blog->headline, 0, 25)).'...'; ?>
 					</a>
 				</h2>
 				<p>
-					<?php echo $blog->description; ?>
+					<?php echo (strlen($blog->description) < 135) ?  $blog->description : rtrim(substr($blog->description, 0, 134)).'...'; ?>
 				</p>
 				<p class="readMore">
 					<a href="/blog/view/id/<?php echo $blog->id; ?>/title/<?php echo $blog->name; ?>">
