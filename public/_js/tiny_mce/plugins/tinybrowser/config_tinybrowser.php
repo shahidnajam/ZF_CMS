@@ -44,7 +44,7 @@ $tinybrowser['docroot'] = rtrim($_SERVER['DOCUMENT_ROOT'],'/');
 
 // Folder permissions for Unix servers only
 $tinybrowser['unixpermissions'] = 0777;
-$path = str_replace('_js/tiny_mce/plugins/tinybrowser', '', str_replace($_SERVER['DOCUMENT_ROOT'], '', str_replace('\\', '/',dirname(__FILE__))));
+$path ='';// str_replace('_js/tiny_mce/plugins/tinybrowser', '', str_replace($_SERVER['DOCUMENT_ROOT'], '', str_replace('\\', '/',dirname(__FILE__))));
 // File upload paths (set to absolute by default)
 $tinybrowser['path']['image'] = $path.'/_uploads/images/'; // Image files location - also creates a '_thumbs' subdirectory within this path to hold the image thumbnails
 $tinybrowser['path']['media'] = $path.'/_uploads/media/'; // Media files location
