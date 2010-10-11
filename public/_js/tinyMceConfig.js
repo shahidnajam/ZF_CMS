@@ -10,6 +10,7 @@ $().ready(function() {
 		plugins : "style,advimage,advlink,iespell,inlinepopups,preview,media,print,contextmenu,paste,noneditable,visualchars,xhtmlxtras,template,advlist,spellchecker",
 		height: '500',
 		// Theme options
+		theme_advanced_blockformats : "p, h2, h3, h4, code",
 		theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,|,preview,code",
 		theme_advanced_buttons2 : "bullist,numlist,blockquote,|,sub,sup,|,undo,redo,|,link,unlink,anchor,|,image,media,|,removeformat,pasteword,|,iespell,spellchecker,|,print",
 		theme_advanced_buttons3 : "",
@@ -20,14 +21,14 @@ $().ready(function() {
 		theme_advanced_resizing : true,
 		file_browser_callback : "tinyBrowser",
 		// Example content CSS (should be your site CSS)
-		//content_css : "/_skins/silver/_css/layout.css",
+		content_css : "/_skins/silver/_css/wysiwyg.css",
 
 		// Drop lists for link/image/media/template dialogs
 		template_external_list_url : "lists/template_list.js",
 		external_link_list_url : "lists/link_list.js",
 		external_image_list_url : "lists/image_list.js",
 		media_external_list_url : "lists/media_list.js",
-		
+		force_p_newlines: false,
 		relative_urls:false,
 		remove_script_host:true,
 		

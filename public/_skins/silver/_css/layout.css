@@ -154,6 +154,7 @@ body {
 	width: 422px;
 }
 
+
 .triple_middle {
 	background-image: url(../_img/triple_middle.png);
 	background-repeat: repeat-y;
@@ -169,31 +170,37 @@ body {
 		background-image: url(../_img/icons/php_med.png);
 		background-repeat: no-repeat;
 		background-position: center left;
+		min-height: 84px;
 	}
 	div.flash {
 		background-image: url(../_img/icons/flash_med.png);
 		background-repeat: no-repeat;
 		background-position: center left;
+		min-height: 84px;		
 	}
 	div.htmlcss {
 		background-image: url(../_img/icons/html_med.png);
 		background-repeat: no-repeat;
 		background-position: center left;
+		min-height: 84px;		
 	}
 	div.flexbuilder {
 		background-image: url(../_img/icons/flex_med.png);
 		background-repeat: no-repeat;
 		background-position: center left;
+		min-height: 84px;		
 	}
 	div.javascriptjquery{
 		background-image: url(../_img/icons/javascript_med.png);
 		background-repeat: no-repeat;
 		background-position: center left;
+		min-height: 84px;		
 	}
 	div.photoshop {
 		background-image: url(../_img/icons/photoshop_med.png);
 		background-repeat: no-repeat;
 		background-position: center left;
+		min-height: 84px;		
 	}
 
 .triple_bottom {

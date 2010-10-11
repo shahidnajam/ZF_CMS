@@ -9,7 +9,7 @@ class SearchController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        if($this->_request->isPost())
+        if($this->_hasParam('query'))
         {
         	$keywords = $this->_request->getParam('query');
         	$query = Zend_Search_Lucene_Search_QueryParser::parse($keywords);
@@ -33,34 +33,32 @@ class SearchController extends Zend_Controller_Action
         	$this->view->keywords = $keywords;
         	$this->view->searchType = "keyword";
         }
-        else 
+        elseif($this->_hasParam('tag'))
         {
-        	if($this->_hasParam('tag'))
-        	{
-        		$tagModel = new Model_Tag();
-        		$pagesArray = $tagModel->getPagesByTag($this->_request->getParam('tag'));
+        	$tagModel = new Model_Tag();
+        	$pagesArray = $tagModel->getPagesByTag($this->_request->getParam('tag'));
                 //
-        		$results = $this->getBlogPostsForView($pagesArray, 'tag');
-        		
-        	}
-        	elseif($this->_hasParam('category'))
-        	{
-        		$catModel = new Model_Category();
-        		$category = $this->_request->getParam('category');
-        		$category = str_replace('-', ' ', $category);
-        		$category = str_replace('_', '/', $category);
-        		$pagesArray = $catModel->getPagesByCategory($category);
-                //
-        		$results = $this->getBlogPostsForView($pagesArray, 'category');
-        	}
-        	else { $hits = array(); }
+        	$results = $this->getBlogPostsForView($pagesArray, 'tag');
+        	
         }
+        elseif($this->_hasParam('category'))
+        {
+        	$catModel = new Model_Category();
+        	$category = $this->_request->getParam('category');
+        	$category = str_replace('-', ' ', $category);
+        	$category = str_replace('_', '/', $category);
+        	$pagesArray = $catModel->getPagesByCategory($category);
+                //
+        	$results = $this->getBlogPostsForView($pagesArray, 'category');
+        }
+        else { $results = array(); }
+        
         //new use paginator
         if($results)
         {
             $adapter = new Zend_Paginator_Adapter_Array($results);
             $paginator = new Zend_Paginator($adapter);
-            $paginator->setItemCountPerPage(6);
+            $paginator->setItemCountPerPage(5);
             $page = $this->_request->getParam('page',1);
             $paginator->setCurrentPageNumber($page);
             $this->view->paginator = $paginator;
