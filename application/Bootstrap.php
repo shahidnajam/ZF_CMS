@@ -36,6 +36,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		$view->headScript()->appendFile('/_js/jquery.js', 'text/javascript');
 		$view->headScript()->appendFile('/_js/jquery-ui.js', 'text/javascript');
 		$view->headScript()->appendFile('/_js/jquery.form.js', 'text/javascript');
+		$view->headScript()->appendFile('/_js/jquery.beautyOfCode.js', 'text/javascript');
 		$view->headScript()->appendFile('/_js/application.js', 'text/javascript');
 		$view->skin = 'silver';
 		
