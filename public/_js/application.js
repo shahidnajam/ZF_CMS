@@ -47,3 +47,10 @@ jQuery(document).ready(function($){
 		return false;
 	});
 });
+
+
+$.beautyOfCode.init({
+  ready: function() {
+    $('pre').beautify('javascript');
+  }
+});

@@ -87,6 +87,9 @@ p {
 p.bottom {
     margin-top: 20px;
 }
+code {
+	white-space:pre-wrap;
+}
 div#left_content_interior p.content { color:#3e3f3e; font-size: 1.15em;}
 #left_content .triple_middle p {padding:0; }
 .triple_middle h2, .blogListing h2 {
@@ -209,3 +212,4 @@ table.spreadsheet td.links {
 .listContainer {
 	min-height: 335px;
 }
+
