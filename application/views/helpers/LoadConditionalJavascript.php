@@ -14,6 +14,10 @@ class Zend_View_Helper_LoadConditionalJavascript extends Zend_View_Helper_Abstra
 			$this->view->headScript()->offsetSetFile(99,'/_js/tiny_mce/plugins/tinybrowser/tb_tinymce.js.php');
 			$this->view->headScript()->offsetSetFile(100,'/_js/tinyMceConfig.js');
 		}
+        else
+        {
+            $this->view->headScript()->offsetSetFile(100,'/_js/jquery.beautyOfCode.js');
+        }
 		if(in_array('tagCloud', $flags))
 		{
 			$this->view->headScript()->offsetSetFile(101,'/_js/tagCloudForm.js');

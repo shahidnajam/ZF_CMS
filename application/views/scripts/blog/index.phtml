@@ -2,6 +2,29 @@
 <?php if($this->paginator):?>
 	<div class="listContainer">
 		<?php echo $this->partialLoop('blog/blog-list.phtml', $this->paginator); ?>
+        <pre class="code">
+        <code class="javascript">
+            $("#submit, button, input:submit, .button").button();
+
+    //ajax comment form posting
+    var ajaxFormOptions = {
+        type: 			'POST',
+        target:			'#comments',
+        beforeSubmit:	validateRequired,
+        success:		successHandler
+    };
+    function validateRequired(formData, jqForm, options){
+        return true;
+    }
+    function successHandler(responseText, statusText, xhr, $form){
+        Recaptcha.reload();
+    }
+    $('body').delegate('.ajax-form', 'submit', function(){
+        $(this).ajaxSubmit(ajaxFormOptions);
+        return false;
+    });
+</code>
+    </pre>
 	</div>
     <?php echo $this->paginationControl($this->paginator, 'Sliding', 'partials/pagination-control.phtml')?>
 <?php else:?>
