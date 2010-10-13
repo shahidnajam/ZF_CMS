@@ -46,11 +46,10 @@ jQuery(document).ready(function($){
         $(this).ajaxSubmit(ajaxFormOptions);
         return false;
     });
+    
+    //syntax highlight
+    jQuery.beautyOfCode.init({
+        brushes: ['Xml', 'JScript', 'Php', 'Plain']
+    });
 });
 
-$.beautyOfCode.init({
-    brushes: ['Xml', 'JScript', 'php', 'as3', 'css', 'ror', 'sql'],
-    ready: function() {
-        $('span.Xml, span.JScript, span.as3, span.css, span.php, span.ror, span.sql').beautify('javascript');
-    }
-});
