@@ -31,7 +31,7 @@ class CMS_Controller_Plugin_Acl extends Zend_Controller_Plugin_Abstract
 		//a guest can only read content and login
 		$acl->allow('guest', 'feed');
 		$acl->allow('guest', 'portfolio');
-		$acl->allow('guest', 'blog', array('index', 'view'));
+		$acl->allow('guest', 'blog', array('index', 'view', 'comment'));
 		$acl->allow('guest', 'page', array('index', 'view'));
 		$acl->allow('guest', 'menu', array('render'));
 		$acl->allow('guest', 'user', array('login', 'logout'));
