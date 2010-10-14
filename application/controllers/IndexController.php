@@ -44,7 +44,7 @@ class IndexController extends Zend_Controller_Action
     	if(($length + $addLength) > $maxLength)
     	{
     		$endAfterSpace = strpos($html, ' ', ($maxLength-$addLength));
-    		$html = substr($html, 0, $endAfterSpace).'...';
+    		$html = substr($html, 0, $endAfterSpace).'...</p>';
     	}
     	return $html;
     }

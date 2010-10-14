@@ -41,13 +41,14 @@ jQuery(document).ready(function($){
     }
     function successHandler(responseText, statusText, xhr, $form){
         Recaptcha.reload();
-        $('commentForm').val('');
+        $('.commentForm').val('');
     }
     $('body').delegate('.ajax-form', 'submit', function(){
         $(this).ajaxSubmit(ajaxFormOptions);
         return false;
     });
-    
+});
+jQuery(document).ready(function($){
     //syntax highlight
     if(jQuery.beautyOfCode != undefined){
 	    jQuery.beautyOfCode.init({
