@@ -1,12 +1,12 @@
-<?php echo '<?xml version="1.0" encoding="UTF-8" ?>'?>
+<?php echo '<?xml version="1.0" encoding="ISO-8859-1" ?>'?>
 <?php echo $this->doctype(); ?>
 <?php $this->layout()->nav = $this->action('render', 'menu', null, array('menuId'=>$this->mainMenuId)); ?>
 <?php $this->layout()->adminMenu = $this->action('render', 'menu', null, array('menuId'=>$this->adminMenuId)); ?>
 <?php $this->layout()->userForm = $this->action('index', 'user'); ?>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
     <?php echo $this->headTitle(); ?>
     
     <?php echo $this->loadSkin($this->skin); ?>
@@ -21,9 +21,11 @@
 				<?php echo $this->layout()->nav; ?>
 				<form method="post" id="headerSearch" action="/search" class="navSearchForm">
 					<div id="search_left"></div>
-					<input type="text" class="search_field" name="query" id="query" value="Search..."  />
+					<div style="display:inline;"><input type="text" class="search_field" name="query" id="query" value="Search..."  /></div>
 					<div id="search_right"></div>
-					<input name="submit" type="image" src="/_uploads/images/search_btn.png" class="search_btn" value="Go!" />
+					<div style="display:inline;">
+						<input name="submit" type="image" src="/_uploads/images/search_btn.png" class="search_btn" value="Go!" />
+					</div>
 				</form>
 			</div><!-- end nav -->
 			
