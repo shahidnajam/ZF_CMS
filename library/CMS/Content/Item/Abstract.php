@@ -235,13 +235,14 @@ abstract class CMS_Content_Item_Abstract
 			$dom->loadHTML($html);
 		}
 		$dom->preserveWhiteSpace = false;
-		$content = $dom->getElementsByTagName($tag);
+		$content = $dom->getElementsByTagname($tag);
+		
 		$output = array();
 		foreach($content as $item)
 		{
-			$output = $item->nodeValue;
+			$output[] = $item->nodeValue;
 		}
-		return $output;
+		return implode($output);
 	}
 }
 ?>
