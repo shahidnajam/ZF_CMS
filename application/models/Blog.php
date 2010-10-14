@@ -121,7 +121,6 @@ class Model_Blog extends Zend_Db_Table_Abstract
 			$row->delete();
 			return true;
 		}
-		
 	}
 	
 	/**

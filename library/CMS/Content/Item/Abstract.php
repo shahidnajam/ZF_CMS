@@ -222,5 +222,26 @@ abstract class CMS_Content_Item_Abstract
 			throw new Zend_Exception('Unable to delete item; the item is empty!');
 		}
 	}
+	
+	static public function txtBtwnTags($html, $tag='code', $strict=0)
+	{
+		$dom = new domDocument;
+		if($strict == 1)
+		{
+			$dom->loadXML($html);
+		}
+		else
+		{
+			$dom->loadHTML($html);
+		}
+		$dom->preserveWhiteSpace = false;
+		$content = $dom->getElementsByTagName($tag);
+		$output = array();
+		foreach($content as $item)
+		{
+			$output = $item->nodeValue;
+		}
+		return $output;
+	}
 }
 ?>
