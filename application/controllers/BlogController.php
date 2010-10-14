@@ -180,7 +180,6 @@ class BlogController extends Zend_Controller_Action
 		if($blog->comments == 1)
 		{
 			$commentsModel = new Model_Comment();
-			$this->view->comments = $commentsModel->getCommentsByPage($id);
 			$commentForm = new Form_Comment();
 			$commentForm->setAction('/blog/comment/id/'.$id);
 			$commentForm->getElement('id')->setValue($id);
@@ -196,6 +195,7 @@ class BlogController extends Zend_Controller_Action
 				);
 				$commentsModel->insert($data);
 			}
+			$this->view->comments = $commentsModel->getCommentsByPage($id);
 			$this->view->form = $commentForm;
 		}
 		$this->view->blog = $blog;
@@ -216,10 +216,10 @@ class BlogController extends Zend_Controller_Action
 		{
 			$data = array(
 				'page_id'=>$id,
-				'name'=>$commentForm->getValue('name'),
-				'email'=>$commentForm->getValue('email'),
+				'name'=>strip_tags($commentForm->getValue('name')),
+				'email'=>strip_tags($commentForm->getValue('email')),
 				'timestamp'=>time(),
-				'content'=>nl2br($commentForm->getValue('content'))
+				'content'=>htmlentities($commentForm->getValue('content'))
 			);
 			$commentsModel->insert($data);
 		}

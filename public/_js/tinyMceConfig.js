@@ -31,6 +31,7 @@ $().ready(function() {
 		force_p_newlines: false,
 		relative_urls:false,
 		remove_script_host:true,
+		remove_linebreaks: false,
 		
 		// Replace values for the template plugin
 		template_replace_values : {

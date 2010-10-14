@@ -41,6 +41,7 @@ jQuery(document).ready(function($){
     }
     function successHandler(responseText, statusText, xhr, $form){
         Recaptcha.reload();
+        $('commentForm').val('');
     }
     $('body').delegate('.ajax-form', 'submit', function(){
         $(this).ajaxSubmit(ajaxFormOptions);
@@ -48,8 +49,28 @@ jQuery(document).ready(function($){
     });
     
     //syntax highlight
-    jQuery.beautyOfCode.init({
-        brushes: ['Xml', 'JScript', 'Php', 'Plain']
+    if(jQuery.beautyOfCode != undefined){
+	    jQuery.beautyOfCode.init({
+	        brushes: ['Xml', 'JScript', 'Php', 'Plain'],
+	        theme: 'Default'
+	    });
+    }
+
+
+    $('div.blogContent p span').each(function(i,el){
+    	console.log($(this));
+    	var brushClass = $(this).attr('class');
+    	console.log(brushClass);
+    	
+    	var $codeElement = $(this).find('code');
+    	$codeElement.addClass(brushClass)
+    	console.log($codeElement);
+    	console.log('fos');
+    	var $newMarkup = $('<pre></pre>')
+    						.addClass('code')
+    						.prepend($codeElement);
+    	console.log($newMarkup);
+    	$newMarkup.insertAfter($(this));
     });
 });
 

@@ -5,7 +5,11 @@
 		<img id="mainImage" src="<?php echo $this->blog->image; ?>" alt="<?php echo $this->blog->headline; ?>" />
 	<?php endif;?>
 	<div class="blogContent">
-		<?php echo $this->blog->blogContent; ?>
+	<?php 
+		$code = CMS_Content_Item_Blog::txtBtwnTags($this->blog->blogContent, 'code');
+		$escCode = htmlentities($code);
+	?>
+		<?php echo str_replace($code, $escCode, $this->blog->blogContent); ?>
 	</div>
 </div>
 
