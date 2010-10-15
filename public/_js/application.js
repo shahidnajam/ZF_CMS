@@ -32,7 +32,7 @@ jQuery(document).ready(function($){
     //ajax comment form posting
     var ajaxFormOptions = {
         type: 			'POST',
-        target:			'#comments',
+        target:			'#commentGroup',
         beforeSubmit:	validateRequired,
         success:		successHandler
     };
@@ -40,8 +40,7 @@ jQuery(document).ready(function($){
         return true;
     }
     function successHandler(responseText, statusText, xhr, $form){
-        Recaptcha.reload();
-        $('.commentForm').val('');
+          
     }
     $('body').delegate('.ajax-form', 'submit', function(){
         $(this).ajaxSubmit(ajaxFormOptions);

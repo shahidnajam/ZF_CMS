@@ -156,7 +156,7 @@ label {font-weight:bold;}
 
 input[type=text], input[type=password], input.text, input.title, textarea, select {background-color:#fff;border:1px solid #DFDFDF;}
 input[type=text]:focus, input[type=password]:focus, input.text:focus, input.title:focus, textarea:focus, select:focus {border-color:#666;}
-input[type=text], input[type=password], input.text, input.title, textarea, select {margin:0.5em 0;}
+input[type=text], input[type=password], input.text, input.title, textarea, select {margin:0.5em 0 0 0;}
 input#comments { margin: 0 0 15px 0; }
 input.text, input.title {width:470px;padding:5px;}
 input.title, select.title {font-size:1.5em;}
@@ -222,3 +222,15 @@ td.content code.string{ color: #F60020 !important; }
 td.content code.variable{ color: #BB23B4 !important; }
 td.content code.comments{ color: #806CA3 !important; }
 
+ul.errors{
+	display:block;
+	list-style-type:none;
+	float:left;	
+}
+ul.errors li{
+	background-color: #B50012;
+	color: #fff;
+	padding: 6px 10px;
+	margin-bottom: 10px;
+	width: 422px;	
+}

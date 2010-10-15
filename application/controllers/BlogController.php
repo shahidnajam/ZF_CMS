@@ -177,31 +177,62 @@ class BlogController extends Zend_Controller_Action
 				$cache->save($blog, $cacheKey, $tags);
 			}
 		}
+		$this->view->blog = $blog;
 		if($blog->comments == 1)
 		{
-			$commentsModel = new Model_Comment();
-			$commentForm = new Form_Comment();
-			$commentForm->setAction('/blog/comment/id/'.$id);
-			$commentForm->getElement('id')->setValue($id);
-			if($this->_request->isPost() && $commentForm->isValid($_POST))
-			{
-				echo "FOO";
-				$data = array(
-					'page_id'=>$id,
-					'name'=>$commentForm->getValue('name'),
-					'email'=>$commentForm->getValue('email'),
-					'timestamp'=>time(),
-					'content'=>nl2br($commentForm->getValue('content'))
-				);
-				$commentsModel->insert($data);
-			}
-			$this->view->comments = $commentsModel->getCommentsByPage($id);
-			$this->view->form = $commentForm;
+			$this->_renderComments($id);
 		}
-		$this->view->blog = $blog;
+		
 		$tagModel = new Model_Tag();
 		$tags = $tagModel->getTagsByPage($id, false);
 		$this->view->tags = $tags;
+	}
+	
+	private function _renderComments($id)
+	{
+		
+			$commentForm = new Form_Comment();
+			$commentForm->setAction('/blog/view/id/'.$id.'/#commentForm');
+			$commentForm->getElement('id')->setValue($id);
+			$commentsModel = new Model_Comment();
+			if($this->_request->isPost() && $commentForm->isValid($_POST))
+			{
+				$commentId = $this->_saveComment($id, $commentForm, $commentsModel);
+				if($commentId)
+				{
+					$msg = array(
+									'title'=>'Success!', 
+									'text'=>'Thank you for your comment.'
+								);
+					$this->view->msg = $msg;
+				}
+			}
+			elseif($commentForm->isValid($_POST) === FALSE)
+			{
+				$error = array(
+								'title'=>'Error!', 
+								'text'=>'Please correct the errors listed below before submitting.'
+							);
+				$this->view->error = $error;
+			}
+			$this->view->comments = $commentsModel->getCommentsByPage($id);
+			$this->view->form = $commentForm;
+		
+	}
+	
+	private function _saveComment($id, Form_Comment $commentForm, Model_Comment $commentsModel)
+	{
+		$commentsModel = new Model_Comment();
+	
+		$data = array(
+			'page_id'=>$id,
+			'name'=>$commentForm->getValue('name'),
+			'email'=>$commentForm->getValue('email'),
+			'timestamp'=>time(),
+			'content'=>nl2br($commentForm->getValue('content'))
+		);
+		return $commentsModel->insert($data);
+	
 	}
 	
 	public function commentAction()
@@ -211,24 +242,31 @@ class BlogController extends Zend_Controller_Action
 		$commentForm = new Form_Comment();
 		$commentForm->setAction('/blog/comment/id/'.$id);
 		$commentForm->getElement('id')->setValue($id);
+		//$commentForm->getElement('submit')->setAttrib('class', 'ui-button ui-widget ui-state-default ui-corner-all');
 		$commentsModel = new Model_Comment();
 		if($this->_request->isPost() && $commentForm->isValid($_POST))
 		{
-			$data = array(
-				'page_id'=>$id,
-				'name'=>strip_tags($commentForm->getValue('name')),
-				'email'=>strip_tags($commentForm->getValue('email')),
-				'timestamp'=>time(),
-				'content'=>htmlentities($commentForm->getValue('content'))
-			);
-			$commentsModel->insert($data);
+			$commentForm->removeElement('captcha');
+			$commentId = $this->_saveComment($id, $commentForm, $commentsModel);
+			if($commentId)
+			{
+				$msg = array(
+								'title'=>'sSuccess!', 
+								'text'=>'Thank you for your comment!'
+							);
+				$this->view->msg = $msg;
+			}
 		}
-		$this->view->form = $commentForm;
+		elseif($commentForm->isValid($_POST) === FALSE)
+		{
+			$error = array(
+							'title'=>'sError!', 
+							'text'=>'Please correct the errors listed below before submitting.'
+						);
+			$this->view->error = $error;
+		}
 		$this->view->comments = $commentsModel->getCommentsByPage($id);
+		$this->view->form = $commentForm;
+		
 	}
 }
-
-
-
-
-
