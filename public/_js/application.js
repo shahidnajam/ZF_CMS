@@ -13,11 +13,17 @@ jQuery(document).ready(function($){
         }
     });
     //fix ugly recaptcha border
-    $('#recaptcha_response_field').css({
+    $('#commentForm #recaptcha_response_field').css({
         border:'1px solid #dfdfdf',
         fontSize:'1.5em',
         padding:'5px',
         width: '290px'
+    });
+    $('#contactForm #recaptcha_response_field').css({
+        border:'1px solid #dfdfdf',
+        fontSize:'1.5em',
+        padding:'5px',
+        width: '337px'
     });
     //fix ugly recaptcha buttons
     $('#recaptcha_reload').attr('src', '/_skins/silver/_img/re_refresh.png');
@@ -32,7 +38,7 @@ jQuery(document).ready(function($){
     //ajax comment form posting
     var ajaxFormOptions = {
         type: 			'POST',
-        target:			'#comments',
+        target:			'#commentGroup',
         beforeSubmit:	validateRequired,
         success:		successHandler
     };
@@ -40,8 +46,7 @@ jQuery(document).ready(function($){
         return true;
     }
     function successHandler(responseText, statusText, xhr, $form){
-        Recaptcha.reload();
-        $('.commentForm').val('');
+          
     }
     $('body').delegate('.ajax-form', 'submit', function(){
         $(this).ajaxSubmit(ajaxFormOptions);
@@ -52,7 +57,6 @@ jQuery(document).ready(function($){
     //syntax highlight
     if(jQuery.beautyOfCode != undefined){
 	    jQuery.beautyOfCode.init({
-	        brushes: ['Xml', 'JScript', 'Php', 'Plain'],
 	        theme: 'Default'
 	    });
     }

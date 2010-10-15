@@ -23,23 +23,41 @@
 </div>
 <?php endif; ?>
 <?php if($this->blog->comments == 1):?>
-<div id="comments">
-	<?php if(count($this->comments) == 0):?>
-		<p>No Comments Yet...</p>
-	<?php else:?>
-		<h2>Comments:</h2>
-		<?php foreach($this->comments as $comment):?>
-			<?php $n=1; ?>
-			<div class="comment">
-				<p><strong>Name: </strong><?php echo $comment->name; ?></p>
-				<p><strong>Time: </strong><?php echo date('m/d/Y g:ia',$comment->timestamp); ?></p>
-				<p class="commentContent"><?php echo $comment->content; ?></p>
+<div id="commentGroup">
+	<div id="comments">
+		<?php if(count($this->comments) == 0):?>
+			<p>No Comments Yet...</p>
+		<?php else:?>
+			<h2>Comments:</h2>
+			<?php foreach($this->comments as $comment):?>
+				<?php $n=1; ?>
+				<div class="comment">
+					<p><strong>Name: </strong><?php echo $comment->name; ?></p>
+					<p><strong>Time: </strong><?php echo date('m/d/Y g:ia',$comment->timestamp); ?></p>
+					<p class="commentContent"><?php echo $comment->content; ?></p>
+				</div>
+			<?php endforeach;?>
+		<?php endif;?>
+	</div>
+	<div id="commentForm">
+		<?php if($this->msg):?>
+			<div class="ui-widget">
+				<div style="margin-top: 20px; padding: 0pt 0.7em;" class=" ui-corner-all ui-widget-header"> 
+					<p><span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-info"></span>
+					<strong><?php echo $this->msg['title']?></strong> <?php echo $this->msg['text']?></p>
+				</div>
 			</div>
-		<?php endforeach;?>
-	<?php endif;?>
-</div>
-<div id="commentForm">
-	<h2>Leave a Comment</h2>
-	<?php echo $this->form; ?>
+		<?php endif;?>
+		<?php if($this->error):?>
+		<div class="ui-widget" style="margin-bottom: 25px;">
+			<div style="padding: 0pt 0.7em; background: #B50012; border:none;" class="ui-state-error"> 
+				<p><span style="float: left; margin-right: 0.3em;" class="ui-icon ui-icon-alert"></span> 
+				<strong><?php echo $this->error['title']?></strong> <?php echo $this->error['text']?></p>
+			</div>
+		</div>
+		<?php endif;?>
+		<h2>Leave a Comment</h2>
+		<?php echo $this->form; ?>
+	</div>
 </div>
 <?php endif;?>

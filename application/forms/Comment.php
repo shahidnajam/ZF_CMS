@@ -10,7 +10,7 @@ class Form_Comment extends Zend_Form
         $publicKey = $config->zfcms->recaptcha->publicKey;
 		
 		$this->setMethod('post');
-		$this->setAttrib('class', 'ajax-form');
+		//$this->setAttrib('class', 'ajax-form');
 		
 		//
 		$id = $this->createElement('hidden', 'id');
@@ -25,10 +25,14 @@ class Form_Comment extends Zend_Form
 		$this->addElement($name);
 		//
 		$email = $this->createElement('text', 'email');
-		$email->setLabel('Email: ');
-		$email->setRequired(TRUE);
-		$email->setAttrib('class', 'commentForm');
-		$email->addFilter('StripTags');		
+		$email->setLabel('Email: ')
+			->setRequired(TRUE)
+			->addValidator(new Zend_Validate_EmailAddress())
+			->setAttrib('class', 'commentForm')
+			->addFilters(array(
+				new Zend_Filter_StringTrim(),
+				new Zend_Filter_StringToLower()
+			));
 		$this->addElement($email);
 		//
 		$content = $this->createElement('textarea', 'content');
