@@ -26,7 +26,7 @@ jQuery.beautyOfCode = {
         theme: 'Default',
         // the brushes that should be loaded - case sensitive!
         // http://alexgorbatchev.com/wiki/SyntaxHighlighter:Brushes
-        brushes: ['Xml', 'JScript', 'as3', 'css', 'php', 'ror', 'sql'],
+        brushes: ['Xml', 'JScript', 'AS3', 'Css', 'Php', 'Ruby', 'Sql'],
         // overrides for configurations and defaults
         // http://alexgorbatchev.com/wiki/SyntaxHighlighter:Configuration
         config: {},

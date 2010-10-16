@@ -2,7 +2,7 @@
 SQLyog Enterprise - MySQL GUI v6.1
 MySQL - 5.0.45-community-nt : Database - zf_cms
 *********************************************************************
-*/
+*/
 
 /*!40101 SET NAMES utf8 */;
 

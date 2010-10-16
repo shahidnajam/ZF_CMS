@@ -230,7 +230,12 @@ ul.errors{
 ul.errors li{
 	background-color: #B50012;
 	color: #fff;
-	padding: 6px 10px;
+	padding: 10px 10px;
 	margin-bottom: 10px;
-	width: 422px;	
+}
+#commentForm ul.errors li {
+    width: 422px;
+}
+#contactForm ul.errors li {
+    width: 462px;
 }

@@ -207,7 +207,7 @@ class BlogController extends Zend_Controller_Action
 					$this->view->msg = $msg;
 				}
 			}
-			elseif($commentForm->isValid($_POST) === FALSE)
+			elseif($this->_request->isPost() && $commentForm->isValid($_POST) === FALSE)
 			{
 				$error = array(
 								'title'=>'Error!', 
