@@ -57,7 +57,8 @@ jQuery(document).ready(function($){
     //syntax highlight
     if(jQuery.beautyOfCode != undefined){
 	    jQuery.beautyOfCode.init({
-	        theme: 'Default'
+	        theme: 'Default',
+	        brushes: ['All'],
 	    });
     }
 

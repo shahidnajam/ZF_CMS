@@ -216,11 +216,14 @@ div.lines div.line table tr td.number, div.lines div.line table tr td.content{
 	margin: 2px 0 !important;
 	padding: 2px !important;
 }
-div.lines div.line table tr td.content{ border-left: 2px solid #0787C6 !important; padding-left: 5px !important;}
+div.lines div.line table tr td.content{ border-left: 2px solid #0787C6 !important; padding-left: 5px !important; overflow-x: scroll !important;}
 td.content code.keyword{ color: #0787C6 !important; font-weight: bold !important; }
 td.content code.string{ color: #F60020 !important; }
 td.content code.variable{ color: #BB23B4 !important; }
 td.content code.comments{ color: #806CA3 !important; }
+
+.syntaxhighlighter  div.line td.number { width: 1.5em !important; }
+.syntaxhighlighter div.line td.number code { width: 1em !important; }
 
 ul.errors{
 	display:block;

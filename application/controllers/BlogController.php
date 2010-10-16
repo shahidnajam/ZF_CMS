@@ -180,44 +180,50 @@ class BlogController extends Zend_Controller_Action
 		$this->view->blog = $blog;
 		if($blog->comments == 1)
 		{
+			
 			$this->_renderComments($id);
 		}
 		
 		$tagModel = new Model_Tag();
 		$tags = $tagModel->getTagsByPage($id, false);
 		$this->view->tags = $tags;
+		$auth = Zend_Auth::getInstance();
+		if($auth->hasIdentity())
+		{
+			$identity = $auth->getIdentity();
+			$role = strtolower($identity->role);
+			$this->view->admin = ($role == 'administrator') ? TRUE : FALSE;
+		}
 	}
 	
 	private function _renderComments($id)
 	{
-		
-			$commentForm = new Form_Comment();
-			$commentForm->setAction('/blog/view/id/'.$id.'/#commentForm');
-			$commentForm->getElement('id')->setValue($id);
-			$commentsModel = new Model_Comment();
-			if($this->_request->isPost() && $commentForm->isValid($_POST))
+		$commentForm = new Form_Comment();
+		$commentForm->setAction('/blog/view/id/'.$id.'/#commentForm');
+		$commentForm->getElement('id')->setValue($id);
+		$commentsModel = new Model_Comment();
+		if($this->_request->isPost() && $commentForm->isValid($_POST))
+		{
+			$commentId = $this->_saveComment($id, $commentForm, $commentsModel);
+			if($commentId)
 			{
-				$commentId = $this->_saveComment($id, $commentForm, $commentsModel);
-				if($commentId)
-				{
-					$msg = array(
-									'title'=>'Success!', 
-									'text'=>'Thank you for your comment.'
-								);
-					$this->view->msg = $msg;
-				}
-			}
-			elseif($this->_request->isPost() && $commentForm->isValid($_POST) === FALSE)
-			{
-				$error = array(
-								'title'=>'Error!', 
-								'text'=>'Please correct the errors listed below before submitting.'
+				$msg = array(
+								'title'=>'Success!', 
+								'text'=>'Thank you for your comment.'
 							);
-				$this->view->error = $error;
+				$this->view->msg = $msg;
 			}
-			$this->view->comments = $commentsModel->getCommentsByPage($id);
-			$this->view->form = $commentForm;
-		
+		}
+		elseif($this->_request->isPost() && $commentForm->isValid($_POST) === FALSE)
+		{
+			$error = array(
+							'title'=>'Error!', 
+							'text'=>'Please correct the errors listed below before submitting.'
+						);
+			$this->view->error = $error;
+		}
+		$this->view->comments = $commentsModel->getCommentsByPage($id);
+		$this->view->form = $commentForm;
 	}
 	
 	private function _saveComment($id, Form_Comment $commentForm, Model_Comment $commentsModel)
@@ -233,6 +239,16 @@ class BlogController extends Zend_Controller_Action
 		);
 		return $commentsModel->insert($data);
 	
+	}
+	
+	public function deleteCommentAction()
+	{
+		$this->_helper->layout->disableLayout();
+		$comment_id = $this->_request->getParam('comment_id');
+		$blog_id = $this->_request->getParam('blog_id');
+		$commentsModel = new Model_Comment();
+		$commentsModel->delete("id='".intval($comment_id)."'");
+		return $this->_redirect('/blog/view/id/'.$blog_id.'/');
 	}
 	
 	public function commentAction()
