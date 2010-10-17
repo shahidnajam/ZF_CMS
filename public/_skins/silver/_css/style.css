@@ -74,6 +74,11 @@ li a:link { color: #666666; font-size: 12px; font-weight:bold; }
 li a:visited { color: #666666; font-size: 12px; font-weight:bold; text-decoration:none; }
 li a:hover { text-decoration:none; color:#349fd2;  }
 
+.ui-state-hover .ui-button-text a:link {color: #fff; }
+.ui-state-hover .ui-button-text a:visited {color: #fff; }
+.ui-state-hover .ui-button-text a:hover {color: #fff; }
+.ui-state-hover .ui-button-text a:active {color: #fff; }
+
 p {
 	font-size: 1.1em;
 	padding: 6px 0 9px 0;
