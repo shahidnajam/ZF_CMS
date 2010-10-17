@@ -247,3 +247,6 @@ ul.errors li{
 #contactForm ul.errors li {
     width: 462px;
 }
+#footerMenu span.ui-button-text {
+	padding: 0.4em 1em .65em;
+}
