@@ -7,8 +7,9 @@
 Table*
 *nbproject
 sleekSilver/*
-/cache/zend*
+/cache/*
 /application/indexes/*
 /public/_uploads/*
 /application/indexes/*
 /application/configs/application.ini
+application/configs/application.ini
