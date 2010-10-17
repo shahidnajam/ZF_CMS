@@ -1,10 +1,9 @@
-<?php echo '<?xml version="1.0" encoding="ISO-8859-1" ?>'?>
 <?php echo $this->doctype(); ?>
 <?php $this->layout()->nav = $this->action('render', 'menu', null, array('menuId'=>$this->mainMenuId)); ?>
 <?php $this->layout()->adminMenu = $this->action('render', 'menu', null, array('menuId'=>$this->adminMenuId)); ?>
 <?php $this->layout()->userForm = $this->action('index', 'user'); ?>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
     <?php echo $this->headTitle(); ?>
