@@ -210,7 +210,7 @@ jQuery.fn.beautifyCode = function(brush, params) {
         var $code = $item.is('code') ? $item : $item.children("code");
         var code = $code[0];
         var classItems = code.className.replace(/.+?(brush:|language-)/,'$1').replace('language-','').split(" ");
-
+        //console.log(classItems);
         var brush = saveBrush ? saveBrush: classItems[0];
         var elementParams = jQuery.beautyOfCode.utils.parseParams(classItems);
 
@@ -224,8 +224,9 @@ jQuery.fn.beautifyCode = function(brush, params) {
         }
         else
         {
+        	//console.log(brush);
             var brush = SyntaxHighlighter.utils.findBrush(brush);
-
+            //console.log(brush);
             if (brush)
                 highlighter = new brush();
             else

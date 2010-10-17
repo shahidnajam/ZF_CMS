@@ -15,7 +15,7 @@ class PageController extends Zend_Controller_Action
         if($adapter)
         {
             $paginator = new Zend_Paginator($adapter);
-            $paginator->setItemCountPerPage(6);
+            $paginator->setItemCountPerPage(4);
             $page = $this->_request->getParam('page',1);
             $paginator->setCurrentPageNumber($page);
 
