@@ -58,7 +58,7 @@ class SearchController extends Zend_Controller_Action
         {
             $adapter = new Zend_Paginator_Adapter_Array($results);
             $paginator = new Zend_Paginator($adapter);
-            $paginator->setItemCountPerPage(5);
+            $paginator->setItemCountPerPage(4);
             $page = $this->_request->getParam('page',1);
             $paginator->setCurrentPageNumber($page);
             $this->view->paginator = $paginator;

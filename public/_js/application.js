@@ -57,24 +57,25 @@ jQuery(document).ready(function($){
     //syntax highlight
     if(jQuery.beautyOfCode != undefined){
 	    jQuery.beautyOfCode.init({
-	        theme: 'Default'
+	        theme: 'Default',
+	        brushes: ['All'],
 	    });
     }
 
 
     $('div.blogContent p span').each(function(i,el){
-    	console.log($(this));
+    	//console.log($(this));
     	var brushClass = $(this).attr('class');
-    	console.log(brushClass);
+    	//console.log(brushClass);
     	
     	var $codeElement = $(this).find('code');
     	$codeElement.addClass(brushClass)
-    	console.log($codeElement);
-    	console.log('fos');
+    	//console.log($codeElement);
+    	//console.log('fos');
     	var $newMarkup = $('<pre></pre>')
     						.addClass('code')
     						.prepend($codeElement);
-    	console.log($newMarkup);
+    	//console.log($newMarkup);
     	$newMarkup.insertAfter($(this));
     });
 });

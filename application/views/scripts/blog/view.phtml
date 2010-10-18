@@ -35,6 +35,13 @@
 					<p><strong>Name: </strong><?php echo $comment->name; ?></p>
 					<p><strong>Time: </strong><?php echo date('m/d/Y g:ia',$comment->timestamp); ?></p>
 					<p class="commentContent"><?php echo $comment->content; ?></p>
+					<?php if($this->admin):?>
+						<p style="padding:0; margin:0 10; text-align: right;">
+							<a class="button" href="/blog/delete-comment/comment_id/<?php echo $comment->id;?>/blog_id/<?php echo $this->blog->id; ?>">
+								<span class="ui-icon ui-icon-trash"></span>							
+							</a>
+						</p>
+					<?php endif;?>
 				</div>
 			<?php endforeach;?>
 		<?php endif;?>

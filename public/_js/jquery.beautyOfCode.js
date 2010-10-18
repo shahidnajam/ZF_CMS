@@ -10,23 +10,24 @@ Version: 0.2
 */
 
 jQuery.beautyOfCode = {
-
+		
     settings: {
         // should the syntax highlighter and brushes
         // be loaded dynamically
         autoLoad: true,
         // the base url to alex' hosted sources
         // http://alexgorbatchev.com/wiki/SyntaxHighlighter:Hosting
-        baseUrl: 'http://alexgorbatchev.com.s3.amazonaws.com/pub/sh/2.1.364/',
+        //baseUrl: 'http://alexgorbatchev.com.s3.amazonaws.com/pub/sh/2.1.364/',
+        baseUrl:	'http://' + window.location.hostname + '/',
         // the baseurl for the hosted scripts
-        scripts: 'scripts/',
+        scripts: '_js/sh/',
         // the baseurl for the hosted styles
-        styles: 'styles/',
+        styles: '_skins/silver/_css/sh/',
         // themes from http://alexgorbatchev.com/wiki/SyntaxHighlighter:Themes
         theme: 'Default',
         // the brushes that should be loaded - case sensitive!
         // http://alexgorbatchev.com/wiki/SyntaxHighlighter:Brushes
-        brushes: ['Xml', 'JScript', 'AS3', 'Css', 'Php', 'Ruby', 'Sql'],
+        brushes: ['JScript', 'AS3', 'Css', 'Php'],
         // overrides for configurations and defaults
         // http://alexgorbatchev.com/wiki/SyntaxHighlighter:Configuration
         config: {},
@@ -209,7 +210,7 @@ jQuery.fn.beautifyCode = function(brush, params) {
         var $code = $item.is('code') ? $item : $item.children("code");
         var code = $code[0];
         var classItems = code.className.replace(/.+?(brush:|language-)/,'$1').replace('language-','').split(" ");
-
+        //console.log(classItems);
         var brush = saveBrush ? saveBrush: classItems[0];
         var elementParams = jQuery.beautyOfCode.utils.parseParams(classItems);
 
@@ -223,8 +224,9 @@ jQuery.fn.beautifyCode = function(brush, params) {
         }
         else
         {
+        	//console.log(brush);
             var brush = SyntaxHighlighter.utils.findBrush(brush);
-
+            //console.log(brush);
             if (brush)
                 highlighter = new brush();
             else

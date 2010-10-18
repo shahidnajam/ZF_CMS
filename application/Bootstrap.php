@@ -31,7 +31,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 		//initialize view
 		$view = new Zend_View();
 		$view->jsFlag = array(); 
-		$view->doctype('XHTML1_STRICT');
+		$view->doctype('HTML5');
 		$view->headTitle('ZFCMS');
 		$view->headScript()->appendFile('/_js/jquery.js', 'text/javascript');
 		$view->headScript()->appendFile('/_js/jquery-ui.js', 'text/javascript');

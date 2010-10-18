@@ -262,15 +262,13 @@ body {
 	float: left;
 	width: 280px;
 	padding: 2px 20px 0 30px;
-	min-height: 350px;
+	min-height: 320px;
 }
 ul#categoryMenu { 
 	list-style-type: none;
 	margin-left: 8px;
-	margin-top: 8px;
-	
+	margin-top: 2px;
 }
-
 ul#categoryMenu li {
 	padding-left: 30px;
 	padding-top: 6px;
@@ -309,7 +307,7 @@ li.photoshop {
 
 ul.Zend_Tag_Cloud {
 	list-style-type:none;
-	margin-top: 10px;
+	margin-top: 0;
 	padding-right: 10px;
 	text-align: center;
 
